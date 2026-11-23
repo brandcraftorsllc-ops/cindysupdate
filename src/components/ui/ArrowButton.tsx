@@ -1,12 +1,14 @@
+import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
+// All variants meet WCAG AA for their label text, including hover states.
 const VARIANTS = {
-  golden: "border-marsh/25 bg-golden text-driftwood hover:border-marsh hover:bg-marsh hover:text-oyster",
-  glass: "border-white/80 bg-white/40 text-marsh backdrop-blur-xl hover:bg-white/80 hover:text-marsh",
-  marsh: "border-marsh bg-marsh text-oyster hover:border-golden hover:bg-golden hover:text-driftwood",
-  cream: "border-oyster/70 bg-oyster text-marsh hover:border-oyster hover:bg-white",
-  ghostLight: "border-white/45 bg-white/10 text-oyster backdrop-blur-xl hover:bg-white/25 hover:text-white",
+  primary: "border-teal bg-teal text-white hover:border-navy hover:bg-navy",
+  gold: "border-gold bg-gold text-navy hover:border-navy hover:bg-navy hover:text-white",
+  light: "border-navy/15 bg-white text-navy hover:border-teal hover:bg-foam",
+  navy: "border-navy bg-navy text-white hover:border-teal hover:bg-teal",
+  ghost: "border-white/70 bg-white/10 text-white backdrop-blur-md hover:bg-white hover:text-navy",
 } as const;
 
 export type ButtonVariant = keyof typeof VARIANTS;
@@ -19,19 +21,19 @@ type Props = {
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className" | "children">;
 
 /** Pill button with divider + animated arrow — the site's signature CTA. */
-export function ArrowButton({ children, href, variant = "golden", className, type = "button", ...rest }: Props) {
+export function ArrowButton({ children, href, variant = "primary", className, type = "button", ...rest }: Props) {
   const classes = cn(
-    "group inline-flex h-[52px] items-stretch overflow-hidden rounded-full border transition-all duration-500",
+    "group inline-flex h-[52px] items-stretch overflow-hidden rounded-full border transition-colors duration-300 disabled:cursor-wait disabled:opacity-70",
     VARIANTS[variant],
     className,
   );
 
   const inner = (
     <>
-      <span className="flex items-center px-5 font-body text-[0.78rem] font-semibold uppercase tracking-[0.16em] sm:px-6">
+      <span className="flex items-center px-5 font-body text-[0.78rem] font-semibold uppercase tracking-[0.14em] sm:px-6">
         {children}
       </span>
-      <span aria-hidden="true" className="w-px self-stretch bg-current opacity-20" />
+      <span aria-hidden="true" className="w-px self-stretch bg-current opacity-25" />
       <span aria-hidden="true" className="flex w-11 items-center justify-center sm:w-12">
         <svg
           width="17"
@@ -43,26 +45,28 @@ export function ArrowButton({ children, href, variant = "golden", className, typ
           <path
             d="M11.3517 1.52148L14.1053 4.6806C15.9753 6.82906 15.9753 10.3126 14.1053 12.4611L11.3517 15.6202"
             stroke="currentColor"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeMiterlimit="10"
-            opacity="0.97"
-          />
-          <path
-            d="M15.5039 8.62988L1.07414 8.62988"
-            stroke="currentColor"
-            strokeWidth="1.2"
+            strokeWidth="1.3"
             strokeLinecap="round"
             strokeMiterlimit="10"
           />
+          <path d="M15.5039 8.62988L1.07414 8.62988" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeMiterlimit="10" />
         </svg>
       </span>
     </>
   );
 
   if (href) {
+    // Internal routes use client-side navigation; hashes, tel: and external URLs are plain links.
+    if (href.startsWith("/") && !href.startsWith("//")) {
+      return (
+        <Link href={href} className={classes}>
+          {inner}
+        </Link>
+      );
+    }
+    const external = /^https?:/.test(href);
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
         {inner}
       </a>
     );

@@ -1,10 +1,19 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { MotionConfig, motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 const EASE = [0.2, 0.7, 0.2, 1] as const;
+
+/**
+ * Honors prefers-reduced-motion site-wide: Framer skips movement (transforms)
+ * for those visitors while keeping markup identical between server and client,
+ * which avoids hydration mismatches.
+ */
+export function MotionProvider({ children }: { children: ReactNode }) {
+  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
+}
 
 /** Fade-and-rise on scroll into view. */
 export function Reveal({
@@ -18,8 +27,6 @@ export function Reveal({
   y?: number;
   className?: string;
 }) {
-  const reduced = useReducedMotion();
-  if (reduced) return <div className={className}>{children}</div>;
   return (
     <motion.div
       className={className}
@@ -40,7 +47,7 @@ export function AnimatedHeading({
   parts,
   as: Tag = "h2",
   className,
-  accent = "text-tidewater",
+  accent = "text-teal",
   delay = 0,
 }: {
   parts: HeadingPart[];
@@ -49,7 +56,6 @@ export function AnimatedHeading({
   accent?: string;
   delay?: number;
 }) {
-  const reduced = useReducedMotion();
   const words: { word: string; italic: boolean }[] = [];
   parts.forEach((p) =>
     p.t
@@ -57,18 +63,6 @@ export function AnimatedHeading({
       .split(/\s+/)
       .forEach((w) => w && words.push({ word: w, italic: !!p.italic })),
   );
-
-  if (reduced) {
-    return (
-      <Tag className={className}>
-        {parts.map((p, i) => (
-          <span key={i} className={p.italic ? cn("italic", accent) : undefined}>
-            {p.t}
-          </span>
-        ))}
-      </Tag>
-    );
-  }
 
   return (
     <Tag className={className}>

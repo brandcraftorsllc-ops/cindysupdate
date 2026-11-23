@@ -1,5 +1,6 @@
 "use client";
 
+import type { StaticImageData } from "next/image";
 import { useState } from "react";
 import { IMAGES } from "@/lib/content";
 import { ArrowButton } from "../ui/ArrowButton";
@@ -12,87 +13,99 @@ const CARDS: {
   id: "buying" | "selling";
   label: string;
   heading: HeadingPart[];
-  image: typeof IMAGES.familyBeach;
+  intro: string;
+  image: StaticImageData;
   alt: string;
   points: string[];
   cta: string;
   span: string;
-  minHeight: string;
+  imagePosition?: string;
 }[] = [
   {
     id: "buying",
     label: "Buying",
     heading: [{ t: "From first look to " }, { t: "keys in hand.", italic: true }],
-    image: IMAGES.familyBeach,
-    alt: "A young family walking East Beach at sunrise on St. Simons Island",
-    points: ["Homes matched to your lifestyle", "New construction guidance", "Veterans' program help", "First-time buyer support"],
+    intro: "I'll learn how you want to live, then find the home and neighborhood that fit.",
+    image: IMAGES.beachFamilySunset,
+    alt: "A family walking hand in hand along the beach at sunset",
+    points: ["Homes matched to your lifestyle", "Neighborhood insight", "Veterans' program help", "First-time buyer support"],
     cta: "Start Buying",
     span: "lg:col-span-7",
-    minHeight: "min-h-[440px] sm:min-h-[500px]",
+    imagePosition: "object-[50%_80%]",
   },
   {
     id: "selling",
     label: "Selling",
     heading: [{ t: "Show your home " }, { t: "at its best.", italic: true }],
-    image: IMAGES.livingRoom,
-    alt: "A bright coastal living room with white oak floors and windows to the marsh",
+    intro: "Design-minded advice before you list, and marketing that shows off the lifestyle.",
+    image: IMAGES.coastalLivingRoom,
+    alt: "A bright coastal living room with teal accents and an open kitchen",
     points: ["Pricing that fits the market", "Design advice before listing", "Marketing that shows the lifestyle", "Downsizing support"],
     cta: "Start Selling",
     span: "lg:col-span-5",
-    minHeight: "min-h-[420px] sm:min-h-[460px]",
   },
 ];
 
 export function BuySell() {
   const [dialog, setDialog] = useState<{ open: boolean; mode: "Buy" | "Sell" }>({ open: false, mode: "Buy" });
   return (
-    <section className="sec bg-oyster">
+    <section className="sec bg-salt">
       <div className="shell">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <AnimatedHeading
             as="h2"
-            className="max-w-[520px] font-heading text-[clamp(1.95rem,4vw,3.1rem)] leading-[1.1] text-marsh"
+            className="max-w-[540px] font-heading text-[clamp(1.95rem,4vw,3.1rem)] leading-[1.1] text-navy"
             parts={[{ t: "Buying and selling, " }, { t: "the thoughtful way.", italic: true }]}
+            accent="text-teal"
           />
-          <p className="max-w-[320px] text-[0.95rem] leading-relaxed text-driftwood/70">
-            Whether it&apos;s your first home or your next chapter, the process should feel calm — and a little bit joyful.
+          <p className="max-w-[340px] text-[1rem] leading-relaxed text-ink/85">
+            Whether it&apos;s your first home or your next chapter, I&apos;ll make the process feel calm — and a little bit
+            joyful.
           </p>
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-12">
           {CARDS.map((c, i) => (
             <Reveal key={c.id} delay={i * 0.08} className={`group ${c.span}`}>
-              <article id={c.id} className={`relative scroll-mt-28 overflow-hidden rounded-[28px] border border-white/40 ${c.minHeight}`}>
-                <Picture
-                  src={c.image}
-                  alt={c.alt}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
-                  sizes="(min-width: 1024px) 660px, 100vw"
-                />
-                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-marsh/92 via-marsh/65 to-marsh/25" />
-                <div className="relative flex h-full flex-col justify-end p-7 sm:p-9">
-                  <p className="eyebrow text-golden">{c.label}</p>
+              <article
+                id={c.id}
+                className="flex h-full scroll-mt-28 flex-col overflow-hidden rounded-[28px] bg-navy shadow-[0_30px_70px_-45px_rgb(20_51_74/0.7)]"
+              >
+                <div className="overflow-hidden">
+                  <Picture
+                    src={c.image}
+                    alt={c.alt}
+                    imgClassName={c.imagePosition}
+                    className="aspect-[16/10] w-full transition-transform [transition-duration:1400ms] ease-out group-hover:scale-[1.05]"
+                    sizes="(min-width: 1024px) 660px, 100vw"
+                  />
+                </div>
+                {/* Solid navy text panel — white text ≈ 13:1, gold accents ≈ 6:1. */}
+                <div className="flex flex-1 flex-col p-7 sm:p-9">
+                  <p className="eyebrow text-gold">{c.label}</p>
                   <AnimatedHeading
                     as="h3"
-                    className="mt-3 max-w-[420px] font-heading text-[clamp(1.7rem,3vw,2.35rem)] leading-[1.12] text-oyster"
+                    className="mt-3 max-w-[440px] font-heading text-[clamp(1.9rem,3.2vw,2.5rem)] leading-[1.1] text-white"
                     parts={c.heading}
-                    accent="text-golden"
+                    accent="text-sky"
                   />
-                  <ul className="mt-5 grid gap-2 sm:max-w-[420px] sm:grid-cols-2">
+                  <p className="mt-3 max-w-[460px] text-[1rem] leading-relaxed text-white/90">{c.intro}</p>
+                  <ul className="mt-5 grid gap-2.5 sm:max-w-[460px] sm:grid-cols-2">
                     {c.points.map((p) => (
-                      <li key={p} className="flex items-start gap-2 font-body text-[0.86rem] leading-snug text-oyster/80">
-                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-golden" aria-hidden="true" />
+                      <li key={p} className="flex items-start gap-2 font-body text-[0.92rem] font-medium leading-snug text-white">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
                         {p}
                       </li>
                     ))}
                   </ul>
-                  <ArrowButton
-                    variant="cream"
-                    className="mt-7 self-start"
-                    onClick={() => setDialog({ open: true, mode: c.id === "selling" ? "Sell" : "Buy" })}
-                  >
-                    {c.cta}
-                  </ArrowButton>
+                  <div className="mt-auto pt-7">
+                    <ArrowButton
+                      variant="gold"
+                      onClick={() => setDialog({ open: true, mode: c.id === "selling" ? "Sell" : "Buy" })}
+                    >
+                      {c.cta}
+                    </ArrowButton>
+                  </div>
                 </div>
               </article>
             </Reveal>

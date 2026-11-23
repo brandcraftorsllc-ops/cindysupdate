@@ -1,99 +1,86 @@
-"use client";
-
-import { useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { IMAGES } from "@/lib/content";
+import Image from "next/image";
+import { IMAGES, STATS } from "@/lib/content";
 import { ArrowButton } from "../../ui/ArrowButton";
-import { AnimatedHeading } from "../../ui/Motion";
-import { Picture } from "../../ui/Picture";
-import { HeroLineArt } from "./HeroLineArt";
+import { AnimatedHeading, Reveal } from "../../ui/Motion";
+import { HeroVideo } from "./HeroVideo";
 import { HomeSearch } from "./HomeSearch";
 
-const OYSTER = "244,240,232";
-
 export function Hero() {
-  const reduced = useReducedMotion();
-  const [sketchDone, setSketchDone] = useState(false);
-
-  useEffect(() => {
-    if (reduced) {
-      setSketchDone(true);
-      return;
-    }
-    const t = setTimeout(() => setSketchDone(true), 2200);
-    return () => clearTimeout(t);
-  }, [reduced]);
-
   return (
-    <section id="top" aria-label="Cindy Baird, St. Simons Island real estate" className="relative isolate overflow-hidden bg-oyster">
-      <div className="absolute inset-0">
-        <Picture
-          src={IMAGES.hero}
-          alt="A classic coastal home with a deep wraparound porch beneath live oaks draped in Spanish moss at golden hour"
-          className="h-full w-full animate-hero-zoom object-cover"
-          priority
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 hidden sm:block"
-          style={{
-            background: `linear-gradient(90deg, rgba(${OYSTER},0.97) 0%, rgba(${OYSTER},0.92) 28%, rgba(${OYSTER},0.6) 56%, rgba(${OYSTER},0.12) 76%, rgba(${OYSTER},0) 92%)`,
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 sm:hidden"
-          style={{
-            background: `linear-gradient(180deg, rgba(${OYSTER},0.86) 0%, rgba(${OYSTER},0.82) 45%, rgba(${OYSTER},0.95) 100%)`,
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 h-[45%]"
-          style={{
-            background: `linear-gradient(0deg, rgba(${OYSTER},0.92) 0%, rgba(${OYSTER},0.3) 55%, rgba(${OYSTER},0) 100%)`,
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-[15%] top-[-10%] h-[70%] w-[70%] animate-golden-drift rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(201,154,75,0.42) 0%, rgba(201,154,75,0) 65%)" }}
-        />
-      </div>
-
-      <HeroLineArt done={sketchDone} />
+    <section id="top" aria-label="Cindy Baird, St. Simons Island REALTOR®" className="relative isolate overflow-hidden bg-foam">
+      <HeroVideo />
+      {/* Light sea-salt wash keeps navy text well above WCAG AA over the bright beach video. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgb(248_251_251/0.92)_0%,rgb(248_251_251/0.86)_55%,rgb(248_251_251/0.95)_100%)] lg:bg-[linear-gradient(90deg,rgb(248_251_251/0.96)_0%,rgb(248_251_251/0.9)_38%,rgb(248_251_251/0.45)_62%,rgb(248_251_251/0.05)_85%)]"
+      />
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-salt via-salt/60 to-transparent" />
 
       <div className="relative flex min-h-[100svh] flex-col">
-        <div className="shell flex flex-1 flex-col justify-center pb-8 pt-32 sm:pt-36">
+        <div className="shell grid flex-1 items-center gap-10 pb-10 pt-32 sm:pt-36 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
           <div className="max-w-[640px]">
-            <p className="font-script text-[1.05rem] leading-relaxed text-tidewater sm:text-[1.2rem]">Home Sweet Agent</p>
+            <div className="flex items-center gap-3">
+              <Image
+                src={IMAGES.cindyPortrait}
+                alt=""
+                width={56}
+                height={56}
+                priority
+                className="h-14 w-14 rounded-full border-2 border-white object-cover shadow-md lg:hidden"
+              />
+              <p className="font-script text-[1.1rem] leading-relaxed text-teal sm:text-[1.25rem]">Home Sweet Agent</p>
+            </div>
             <AnimatedHeading
               as="h1"
-              className="mt-4 font-heading text-[clamp(2.45rem,5.6vw,4.25rem)] leading-[1.06] text-marsh"
+              className="mt-4 font-heading text-[clamp(2.5rem,5.6vw,4.4rem)] leading-[1.05] text-navy"
               parts={[{ t: "I'll help you find " }, { t: "the home you've been imagining.", italic: true }]}
-              accent="text-tidewater"
+              accent="text-teal"
               delay={0.15}
             />
-            <p className="mt-6 max-w-[470px] text-[1rem] leading-relaxed text-driftwood/85 sm:text-[1.06rem]">
-              I&apos;m Cindy Baird, REALTOR® — St. Simons Island and the Golden Isles, with a designer&apos;s eye and a
-              neighbor&apos;s heart. I&apos;ll help you find the right home, or get yours ready for its next chapter.
+            <p className="mt-6 max-w-[500px] text-[1.05rem] leading-relaxed text-ink sm:text-[1.1rem]">
+              I&apos;m Cindy Baird, your St. Simons Island REALTOR® with Keller Williams Realty Golden Isles. This island has
+              been my home since 2000 — and I&apos;d love to help it become yours, with a designer&apos;s eye and a
+              neighbor&apos;s heart.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <ArrowButton href="#search" variant="golden">
+              <ArrowButton href="#search" variant="primary">
                 Start My Home Search
               </ArrowButton>
-              <ArrowButton href="#home-value" variant="glass">
+              <ArrowButton href="#home-value" variant="light">
                 What&apos;s My Home Worth?
               </ArrowButton>
             </div>
-            <p className="mt-7 font-script text-[1.4rem] leading-none text-tidewater">Cindy</p>
-            <p className="mt-3 max-w-[520px] text-[0.74rem] leading-relaxed text-driftwood/65">
-              Cindy Baird, REALTOR® · Keller Williams Realty Golden Isles · 122 Island Professional Park, St. Simons Island, GA
-              31522
-            </p>
+            <dl className="mt-9 grid max-w-[520px] grid-cols-3 gap-4 border-t border-navy/15 pt-6">
+              {STATS.map((s) => (
+                <div key={s.label} className="flex flex-col">
+                  <dt className="order-2 mt-1 font-body text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-ink/80">
+                    {s.label}
+                  </dt>
+                  <dd className="whitespace-nowrap font-heading text-[clamp(1.15rem,4.6vw,1.9rem)] leading-none text-navy">{s.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
+
+          {/* Cindy, front and centre on larger screens */}
+          <Reveal delay={0.2} className="relative mx-auto hidden w-full max-w-[420px] lg:block">
+            <div className="relative overflow-hidden rounded-[32px] border-4 border-white shadow-[0_40px_80px_-40px_rgb(20_51_74/0.55)]">
+              <Image
+                src={IMAGES.cindyPortrait}
+                alt="Cindy Baird, REALTOR®, smiling outdoors in a navy top"
+                priority
+                sizes="420px"
+                placeholder="blur"
+                className="aspect-[4/5] h-auto w-full object-cover object-[50%_30%]"
+              />
+            </div>
+            <div className="glass-sm absolute -bottom-6 left-1/2 w-[88%] -translate-x-1/2 px-5 py-4 text-center">
+              <p className="font-script text-[1.3rem] leading-none text-teal">Cindy</p>
+              <p className="mt-2 font-body text-[0.78rem] font-medium text-navy">Living on St. Simons Island since 2000</p>
+            </div>
+          </Reveal>
         </div>
-        <div id="search" className="shell mb-[84px] scroll-mt-24 pb-8 sm:pb-10 md:mb-0">
+        <div id="search" className="shell mb-[84px] scroll-mt-24 pb-8 pt-4 sm:pb-10 md:mb-0">
           <HomeSearch />
         </div>
       </div>

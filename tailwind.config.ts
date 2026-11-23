@@ -11,14 +11,18 @@ const config: Config = {
     extend: {
       // The reference resolves any integer opacity modifier (e.g. bg-white/88, from-marsh/92).
       opacity: Object.fromEntries(Array.from({ length: 101 }, (_, i) => [String(i), String(i / 100)])),
+      // Coastal palette — values live in src/app/globals.css (:root) so the theme changes in one place.
       colors: {
-        oyster: hsl("oyster"),
-        seaoat: hsl("seaoat"),
-        moss: hsl("moss"),
-        marsh: hsl("marsh"),
-        tidewater: hsl("tidewater"),
-        golden: hsl("golden"),
-        driftwood: hsl("driftwood"),
+        salt: hsl("salt"), // sea-salt white page background
+        foam: hsl("foam"), // pastel-blue section tint
+        sky: hsl("sky"), // pastel blue secondary accent
+        seaglass: hsl("seaglass"), // light teal tint
+        teal: hsl("teal"), // primary accent (AA on white)
+        tide: hsl("tide"), // brighter teal for decoration / large text
+        navy: hsl("navy"), // deep navy-teal for headings, footer, contrast
+        ink: hsl("ink"), // body text
+        sand: hsl("sand"), // light sand neutral (sparingly)
+        gold: hsl("gold"), // refined gold accent
         background: hsl("background"),
         foreground: hsl("foreground"),
         border: hsl("border"),

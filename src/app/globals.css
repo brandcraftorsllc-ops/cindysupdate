@@ -2,27 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens — taken verbatim from the reference build */
+/*
+ * Coastal design tokens — the single source of truth for the palette.
+ * Tailwind maps these to `salt`, `foam`, `sky`, `seaglass`, `teal`, `tide`,
+ * `navy`, `ink`, `sand` and `gold` (see tailwind.config.ts).
+ *
+ * Contrast notes (WCAG AA):
+ *   teal on salt/white ≈ 6.1:1   navy on salt ≈ 13:1   ink on salt ≈ 11:1
+ *   white on teal ≈ 6.1:1        navy on gold ≈ 6.4:1  white on navy ≈ 13:1
+ *   tide and gold are decorative / large-text only on light backgrounds.
+ */
 @layer base {
   :root {
-    --oyster: 40 35% 93%;
-    --seaoat: 40 41% 84%;
-    --moss: 74 16% 62%;
-    --marsh: 139 15% 29%;
-    --tidewater: 200 30% 34%;
-    --golden: 38 54% 54%;
-    --driftwood: 30 10% 16%;
-    --background: 40 35% 93%;
-    --foreground: 30 10% 16%;
-    --muted: 40 25% 88%;
-    --muted-foreground: 130 8% 38%;
-    --accent: 38 54% 54%;
-    --accent-foreground: 30 10% 16%;
-    --destructive: 0 62% 42%;
+    --salt: 190 33% 98%;
+    --foam: 196 52% 94%;
+    --sky: 199 62% 82%;
+    --seaglass: 176 38% 88%;
+    --teal: 184 64% 26%;
+    --tide: 181 47% 42%;
+    --navy: 203 52% 17%;
+    --ink: 205 24% 21%;
+    --sand: 38 44% 92%;
+    --gold: 38 60% 54%;
+
+    --background: var(--salt);
+    --foreground: var(--ink);
+    --muted: var(--foam);
+    --muted-foreground: 205 15% 38%;
+    --accent: var(--teal);
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 65% 40%;
     --destructive-foreground: 0 0% 100%;
-    --border: 40 18% 82%;
-    --input: 40 18% 82%;
-    --ring: 38 54% 54%;
+    --border: 198 30% 86%;
+    --input: 198 30% 86%;
+    --ring: var(--teal);
     --radius: 0.625rem;
   }
 
@@ -49,19 +62,19 @@
   h2,
   h3,
   h4 {
-    color: hsl(var(--marsh));
+    color: hsl(var(--navy));
     letter-spacing: -0.02em;
     font-family: var(--font-caslon), Georgia, serif;
     font-weight: 400;
   }
 
   ::selection {
-    background: hsl(var(--golden) / 0.35);
-    color: hsl(var(--driftwood));
+    background: hsl(var(--sky) / 0.6);
+    color: hsl(var(--navy));
   }
 
   :focus-visible {
-    outline: 2px solid hsl(var(--golden));
+    outline: 2px solid hsl(var(--teal));
     outline-offset: 3px;
   }
 
@@ -118,22 +131,31 @@
     }
   }
 
+  /* Frosted card — bright and opaque enough that text on it always meets AA. */
   .glass {
-    -webkit-backdrop-filter: blur(22px) saturate(120%);
-    backdrop-filter: blur(22px) saturate(120%);
-    background: #ffffffa3;
-    border: 1px solid #ffffffb8;
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    backdrop-filter: blur(22px) saturate(140%);
+    background: rgb(255 255 255 / 0.82);
+    border: 1px solid rgb(255 255 255 / 0.9);
     border-radius: 28px;
-    box-shadow: 0 24px 60px -30px #2e2a2666;
+    box-shadow: 0 24px 60px -32px rgb(20 51 74 / 0.35);
   }
 
   .glass-sm {
-    -webkit-backdrop-filter: blur(18px) saturate(120%);
-    backdrop-filter: blur(18px) saturate(120%);
-    background: #fff9;
-    border: 1px solid #ffffffb3;
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+    background: rgb(255 255 255 / 0.85);
+    border: 1px solid rgb(255 255 255 / 0.9);
     border-radius: 20px;
-    box-shadow: 0 16px 40px -26px #2e2a2661;
+    box-shadow: 0 16px 40px -26px rgb(20 51 74 / 0.35);
+  }
+
+  /* Plain bright card for content on salt/foam backgrounds. */
+  .card {
+    background: #fff;
+    border: 1px solid hsl(var(--border));
+    border-radius: 28px;
+    box-shadow: 0 20px 50px -34px rgb(20 51 74 / 0.35);
   }
 
   .eyebrow {
@@ -157,29 +179,32 @@
 
   .field-input {
     width: 100%;
-    color: hsl(var(--driftwood));
-    background-color: #ffffffb3;
+    color: hsl(var(--ink));
+    background-color: #fff;
     border-width: 1px;
-    border-color: #ffffffb3;
+    border-color: hsl(var(--border));
     border-radius: 1rem;
     padding: 0.75rem 1rem;
     font-family: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
     font-size: 0.95rem;
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-property: color, background-color, border-color, box-shadow;
     transition-duration: 0.15s;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
   .field-input::placeholder {
-    color: hsl(var(--driftwood) / 0.45);
+    color: hsl(205 15% 45%);
+  }
+  .field-input:hover {
+    border-color: hsl(var(--tide) / 0.6);
   }
   .field-input:focus {
-    border-color: hsl(var(--golden) / 0.7);
-    background-color: #fff;
+    border-color: hsl(var(--teal));
+    box-shadow: 0 0 0 3px hsl(var(--teal) / 0.18);
     outline: 2px solid transparent;
     outline-offset: 2px;
   }
   .field-input[aria-invalid="true"] {
-    border-color: hsl(var(--destructive) / 0.6);
+    border-color: hsl(var(--destructive));
   }
 
   /* Dual-thumb price range */
@@ -201,24 +226,28 @@
   .range-input::-webkit-slider-thumb {
     -webkit-appearance: none;
     pointer-events: auto;
-    border: 2px solid hsl(var(--marsh));
+    border: 2px solid hsl(var(--teal));
     cursor: grab;
     background: #fff;
     border-radius: 9999px;
     width: 20px;
     height: 20px;
     margin-top: 0;
-    box-shadow: 0 4px 12px #2e2a2647;
+    box-shadow: 0 4px 12px rgb(20 51 74 / 0.25);
   }
   .range-input::-moz-range-thumb {
     pointer-events: auto;
-    border: 2px solid hsl(var(--marsh));
+    border: 2px solid hsl(var(--teal));
     cursor: grab;
     background: #fff;
     border-radius: 9999px;
     width: 20px;
     height: 20px;
-    box-shadow: 0 4px 12px #2e2a2647;
+    box-shadow: 0 4px 12px rgb(20 51 74 / 0.25);
+  }
+  .range-input:focus-visible::-webkit-slider-thumb {
+    outline: 2px solid hsl(var(--teal));
+    outline-offset: 2px;
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -231,28 +260,6 @@
 }
 
 /* Ambient animations */
-@keyframes hero-zoom {
-  0% {
-    transform: scale(1.02);
-  }
-  to {
-    transform: scale(1.12);
-  }
-}
-@keyframes golden-drift {
-  0% {
-    opacity: 0.35;
-    transform: translate(-4%) scale(1.1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translate(6%, -3%) scale(1.25);
-  }
-  to {
-    opacity: 0.35;
-    transform: translate(-4%) scale(1.1);
-  }
-}
 @keyframes moss-sway {
   0%,
   to {
@@ -264,23 +271,17 @@
 }
 @keyframes dot-pulse {
   0% {
-    box-shadow: 0 0 #c99a4b8c;
+    box-shadow: 0 0 rgb(26 113 118 / 0.5);
   }
   70% {
-    box-shadow: 0 0 0 14px #c99a4b00;
+    box-shadow: 0 0 0 14px rgb(26 113 118 / 0);
   }
   to {
-    box-shadow: 0 0 #c99a4b00;
+    box-shadow: 0 0 rgb(26 113 118 / 0);
   }
 }
 
 @layer utilities {
-  .animate-hero-zoom {
-    animation: 26s ease-in-out infinite alternate hero-zoom;
-  }
-  .animate-golden-drift {
-    animation: 22s ease-in-out infinite golden-drift;
-  }
   .animate-moss-sway {
     animation: 14s ease-in-out infinite moss-sway;
   }
@@ -290,8 +291,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-hero-zoom,
-  .animate-golden-drift,
   .animate-moss-sway,
   .animate-dot {
     animation: none !important;

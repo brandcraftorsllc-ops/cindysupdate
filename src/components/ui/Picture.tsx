@@ -7,16 +7,18 @@ type Props = {
   className?: string;
   sizes?: string;
   priority?: boolean;
+  /** Extra classes for the <img>, e.g. an object-position. */
+  imgClassName?: string;
 };
 
 /**
- * Mirrors the reference site's responsive image wrapper: an inline-block span
- * carrying the layout classes, with the image filling it via object-cover and a
- * blurred low-res preview while loading.
+ * Responsive image wrapper: a block span carrying the layout classes (size,
+ * aspect ratio, transforms), with the image filling it via object-cover and a
+ * blurred low-res preview while loading. Lazy-loaded unless `priority`.
  */
-export function Picture({ src, alt, className, sizes = "100vw", priority }: Props) {
+export function Picture({ src, alt, className, sizes = "100vw", priority, imgClassName }: Props) {
   return (
-    <span className={cn("relative inline-block", className)}>
+    <span className={cn("relative block", className)}>
       <span className="relative block h-full w-full overflow-hidden">
         <Image
           src={src}
@@ -26,7 +28,7 @@ export function Picture({ src, alt, className, sizes = "100vw", priority }: Prop
           quality={90}
           priority={priority}
           placeholder="blur"
-          className="object-cover"
+          className={cn("object-cover", imgClassName)}
         />
       </span>
     </span>
