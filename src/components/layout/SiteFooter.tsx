@@ -6,7 +6,7 @@ import { useState } from "react";
 import brokerageLogo from "@/assets/images/kw-golden-isles-footer.png";
 import { AGENT, NAV_LINKS } from "@/lib/content";
 import { ArrowButton } from "../ui/ArrowButton";
-import { BrokerageBadge, EqualHousing } from "../ui/Brand";
+import { BrokerageBadge, EqualHousing, Wordmark } from "../ui/Brand";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "../ui/Icons";
 import { TalkDialog } from "../ui/LeadDialogs";
 
@@ -35,13 +35,7 @@ export function SiteFooter() {
       <div className="shell relative py-16 pb-32 sm:py-20 md:pb-16">
         <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr_0.8fr_1fr]">
           <div>
-            <Link
-              href="/"
-              aria-label="Keller Williams Realty Golden Isles — home"
-              className="inline-flex rounded-lg bg-white px-2.5 py-1.5"
-            >
-              <Image src={brokerageLogo} alt="Keller Williams Realty Golden Isles" className="h-auto w-[210px]" />
-            </Link>
+            <Wordmark tone="light" />
             <p className="mt-5 max-w-[290px] text-[0.95rem] leading-relaxed text-white">
               Guiding you home with care, creativity and coastal insight — across St. Simons Island and the Golden Isles.
             </p>
@@ -70,6 +64,9 @@ export function SiteFooter() {
                 {AGENT.cityLine}
               </span>
             </p>
+            <div className="mt-4 inline-flex rounded-lg bg-white px-2.5 py-1.5">
+              <Image src={brokerageLogo} alt="Keller Williams Realty Golden Isles" className="h-auto w-[210px]" />
+            </div>
           </div>
 
           <nav aria-label="Footer">
