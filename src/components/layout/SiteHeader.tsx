@@ -47,10 +47,11 @@ export function SiteHeader() {
       <header className="absolute inset-x-0 top-0 z-50">
         <div className="shell pt-3 sm:pt-4">
           <div
-            className="glass flex h-[76px] items-center justify-between gap-3 px-3 sm:px-5"
+            className="glass flex h-[76px] items-center justify-between gap-2 px-3 sm:gap-3 sm:px-5"
           >
-            <div className="flex min-w-0 items-center gap-4">
+            <div className="flex min-w-0 items-center gap-3">
               <Wordmark />
+              <BrokerageBadge className="hidden sm:flex" />
             </div>
 
             <nav aria-label="Main" className="hidden items-center gap-4 lg:flex xl:gap-5">
