@@ -1,19 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { IMAGES } from "@/lib/content";
 import { ArrowButton } from "../../ui/ArrowButton";
 import { HomesDialog } from "../../ui/LeadDialogs";
 import { AnimatedHeading, Reveal } from "../../ui/Motion";
-import { Picture } from "../../ui/Picture";
+import { BeforeAfterSlider } from "./BeforeAfterSlider";
 
-const INTERIORS = [
-  { src: IMAGES.interiorBiltmoreLiving, alt: "Bright living room opening to a screened porch at 116 Biltmore", caption: "116 Biltmore · Sold" },
-  { src: IMAGES.interiorCoastCottage, alt: "Light-filled coastal living room with tall windows at 17 Coast Cottage Lane", caption: "17 Coast Cottage Ln · Sold" },
-  { src: IMAGES.interiorBiltmoreKitchen, alt: "White kitchen with an island and dining area at 116 Biltmore", caption: "116 Biltmore · Sold" },
-];
-
-/** Cindy's design story, shown with real interiors from homes she has sold. */
+/** Cindy's design story with the before/after kitchen comparison slider. */
 export function DesignEye() {
   const [open, setOpen] = useState(false);
   return (
@@ -39,35 +32,13 @@ export function DesignEye() {
               <ArrowButton onClick={() => setOpen(true)} variant="primary" className="mt-7">
                 Find My Home with Cindy
               </ArrowButton>
+              <p className="mt-4 text-[0.9rem] text-ink/85">
+                Drag the slider to see a dated kitchen become the room it wanted to be.
+              </p>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="grid grid-cols-2 gap-4">
-              {INTERIORS.map((img, i) => (
-                <figure
-                  key={img.alt}
-                  className={
-                    i === 0
-                      ? "group relative col-span-2 overflow-hidden rounded-[28px] border-4 border-white shadow-[0_30px_70px_-45px_rgb(24_103_109/0.6)]"
-                      : "group relative overflow-hidden rounded-[24px] border-4 border-white shadow-[0_24px_50px_-40px_rgb(24_103_109/0.6)]"
-                  }
-                >
-                  <Picture
-                    src={img.src}
-                    alt={img.alt}
-                    sizes={i === 0 ? "(min-width: 1024px) 640px, 100vw" : "(min-width: 1024px) 320px, 50vw"}
-                    className={
-                      i === 0
-                        ? "aspect-[16/9] w-full transition-transform duration-700 group-hover:scale-[1.04]"
-                        : "aspect-[4/3] w-full transition-transform duration-700 group-hover:scale-[1.04]"
-                    }
-                  />
-                  <figcaption className="absolute bottom-3 left-3 rounded-full bg-white px-3 py-1 font-body text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-teal shadow-sm">
-                    {img.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
+            <BeforeAfterSlider />
           </Reveal>
         </div>
       </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { IMAGES, VALUATION } from "@/lib/content";
+import { HOME_VALUE_VIDEO, IMAGES, VALUATION } from "@/lib/content";
+import { BackgroundVideo } from "../ui/BackgroundVideo";
 import type { FieldErrors } from "@/lib/leads";
 import { useLeadForm } from "@/lib/useLeadForm";
 import { ArrowButton } from "../ui/ArrowButton";
@@ -9,7 +10,6 @@ import { errorProps, Field, SelectOptions } from "../ui/Field";
 import { FormError, ThankYou } from "../ui/FormStatus";
 import { ContactFields } from "../ui/LeadDialogs";
 import { AnimatedHeading } from "../ui/Motion";
-import { Picture } from "../ui/Picture";
 
 const INITIAL = {
   address: "",
@@ -61,7 +61,7 @@ export function HomeValue() {
   return (
     <section id="home-value" className="relative scroll-mt-4 overflow-hidden">
       <div className="absolute inset-0">
-        <Picture src={IMAGES.marshSunset} alt="" className="h-full w-full" />
+        <BackgroundVideo poster={IMAGES.homeValuePoster} mp4={HOME_VALUE_VIDEO.mp4} webm={HOME_VALUE_VIDEO.webm} lazy />
       </div>
       <div className="shell relative py-20 sm:py-24 lg:py-28">
         <div className="mx-auto max-w-[880px]">

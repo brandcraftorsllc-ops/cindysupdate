@@ -83,8 +83,9 @@ export function IslandLife() {
         </div>
 
         <div className="mt-6 grid gap-6 lg:mt-8 lg:grid-cols-[1.02fr_1fr] lg:gap-8">
-          <Reveal className="lg:block">
-            <div className="relative mx-auto aspect-[12/11] w-full max-w-[440px] overflow-hidden rounded-[28px] border border-teal/10 bg-foam lg:max-w-none">
+          {/* On desktop the map stretches to the full height of the photo + card column. */}
+          <Reveal className="lg:h-full">
+            <div className="relative mx-auto aspect-[12/11] w-full max-w-[440px] overflow-hidden rounded-[28px] border border-teal/10 bg-foam lg:aspect-auto lg:h-full lg:min-h-[460px] lg:max-w-none">
               <div aria-hidden="true" className="absolute inset-0 animate-moss-sway">
                 <IslandMapArt />
               </div>
@@ -119,7 +120,9 @@ export function IslandLife() {
               </span>
             </div>
           </Reveal>
-          <Reveal delay={0.1}>{card}</Reveal>
+          <Reveal delay={0.1} className="lg:h-full">
+            {card}
+          </Reveal>
         </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-4">

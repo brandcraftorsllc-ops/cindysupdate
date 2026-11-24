@@ -1,7 +1,7 @@
 /** Hand-drawn coastline illustration behind the community pins. */
 export function IslandMapArt() {
   return (
-    <svg viewBox="0 0 480 440" aria-hidden="true" className="absolute inset-0 h-full w-full" fill="none">
+    <svg viewBox="0 0 480 440" preserveAspectRatio="none" aria-hidden="true" className="absolute inset-0 h-full w-full" fill="none">
       <path
         d="M-10 -10 L152 -10 C164 40 148 86 156 132 C164 178 142 214 150 258 C158 302 132 338 142 384 C150 418 128 432 118 450 L-10 450 Z"
         fill="hsl(38 44% 92% / 0.9)"

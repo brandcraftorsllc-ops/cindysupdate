@@ -1,14 +1,19 @@
 import Image from "next/image";
-import { IMAGES, STATS } from "@/lib/content";
+import { HERO_VIDEO, IMAGES, STATS } from "@/lib/content";
+import { BackgroundVideo } from "../../ui/BackgroundVideo";
 import { ArrowButton } from "../../ui/ArrowButton";
 import { AnimatedHeading, Reveal } from "../../ui/Motion";
-import { HeroVideo } from "./HeroVideo";
 import { HomeSearch } from "./HomeSearch";
 
 export function Hero() {
   return (
     <section id="top" aria-label="Cindy Baird, St. Simons Island REALTOR®" className="relative isolate overflow-hidden bg-foam">
-      <HeroVideo />
+      <BackgroundVideo poster={IMAGES.heroPoster} mp4={HERO_VIDEO.mp4} webm={HERO_VIDEO.webm} priority />
+      {/* Light sea-salt wash behind the copy only — enough for comfortable reading, video stays visible. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-salt/55 lg:bg-transparent lg:bg-[linear-gradient(90deg,rgb(248_251_251/0.72)_0%,rgb(248_251_251/0.55)_38%,rgb(248_251_251/0.15)_58%,rgb(248_251_251/0)_72%)]"
+      />
 
       <div className="relative flex min-h-[100svh] flex-col">
         <div className="shell grid flex-1 items-center gap-10 pb-10 pt-32 sm:pt-36 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">

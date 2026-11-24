@@ -11,25 +11,23 @@ import darienWaterfront from "@/assets/images/darien-historic-waterfront.jpg";
 import fortFrederica from "@/assets/images/fort-frederica-waterway.jpg";
 import glynnVisualArts from "@/assets/images/glynn-visual-arts.jpg";
 import heroPoster from "@/assets/images/hero-video-poster-st-simons-beach.jpg";
-import interiorBiltmoreKitchen from "@/assets/images/interior-116-biltmore-kitchen.jpg";
-import interiorBiltmoreLiving from "@/assets/images/interior-116-biltmore-living.jpg";
-import interiorCoastCottage from "@/assets/images/interior-17-coast-cottage-living.jpg";
+import homeValuePoster from "@/assets/images/home-value-grass-poster.jpg";
 import golfCourse from "@/assets/images/island-golf-course.jpg";
 import jekyllBeach from "@/assets/images/jekyll-island-beach-aerial.jpg";
 import liveOakAvenue from "@/assets/images/live-oak-avenue.jpg";
 import marshCannon from "@/assets/images/marsh-cannon-sunset.jpg";
-import marshSunset from "@/assets/images/golden-isles-marsh-sunset.jpg";
 import seaIslandOaks from "@/assets/images/sea-island-live-oak-lane.jpg";
 import southernSoul from "@/assets/images/southern-soul-barbeque.jpg";
 import stSimonsPier from "@/assets/images/st-simons-pier.jpg";
+import stMarysGolf from "@/assets/images/st-marys-golf-course.jpg";
 import stSimonsSign from "@/assets/images/st-simons-welcome-sign.jpg";
 
 /** Every photo is a real image downloaded from cindybairdrealtor.com. */
 export const IMAGES = {
   cindyPortrait,
   heroPoster,
+  homeValuePoster,
   stSimonsPier,
-  marshSunset,
   liveOakAvenue,
   marshCannon,
   stSimonsSign,
@@ -42,14 +40,17 @@ export const IMAGES = {
   glynnVisualArts,
   beachDogSplash,
   fortFrederica,
-  interiorBiltmoreLiving,
-  interiorBiltmoreKitchen,
-  interiorCoastCottage,
 } satisfies Record<string, StaticImageData>;
 
 export const HERO_VIDEO = {
   mp4: "/videos/hero-video.mp4",
   webm: "/videos/hero-video.webm",
+};
+
+/** Marsh grass swaying in the wind — background of the home-value section. */
+export const HOME_VALUE_VIDEO = {
+  mp4: "/videos/home-value-grass.mp4",
+  webm: "/videos/home-value-grass.webm",
 };
 
 export const AGENT = {
@@ -188,8 +189,8 @@ export const LIFESTYLE: { title: string; image: StaticImageData; alt: string }[]
 
 /**
  * "Neighborhood Guides" — the six guides on cindybairdrealtor.com, linking to
- * her full guide pages. St. Marys has no usable photo (her site uses an Arizona
- * golf image), so its card is a photo-free design card.
+ * her full guide pages. St. Marys uses the golf-course photo from her St. Marys
+ * guide card (supplied by the client).
  */
 export const NEIGHBORHOOD_GUIDES: { name: string; href: string; image?: StaticImageData; alt?: string }[] = [
   {
@@ -222,7 +223,12 @@ export const NEIGHBORHOOD_GUIDES: { name: string; href: string; image?: StaticIm
     image: darienWaterfront,
     alt: "Historic wooden buildings beside the marsh near Darien",
   },
-  { name: "St. Marys", href: "https://cindybairdrealtor.com/neighborhoods/st-marys" },
+  {
+    name: "St. Marys",
+    href: "https://cindybairdrealtor.com/neighborhoods/st-marys",
+    image: stMarysGolf,
+    alt: "A golf green with a red flag, marsh grasses and live oaks under a bright sky",
+  },
 ];
 
 /** Options for the home-search bar and lead forms. */
