@@ -7,7 +7,7 @@ export function SoldHomes() {
   return (
     <ListingCarousel
       id="sold"
-      eyebrow="Sold"
+      eyebrow="Where Deals Become Homes"
       heading={[{ t: "From cottages to " }, { t: "island estates.", italic: true }]}
       intro="Every sale gets the same care, whatever the price — from a Brunswick lot to a family home on St. Simons."
       listings={SOLD_LISTINGS}

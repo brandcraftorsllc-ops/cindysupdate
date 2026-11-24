@@ -12,7 +12,7 @@ export function Hero() {
       {/* Light sea-salt wash behind the copy only — enough for comfortable reading, video stays visible. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-salt/55 lg:bg-transparent lg:bg-[linear-gradient(90deg,rgb(248_251_251/0.72)_0%,rgb(248_251_251/0.55)_38%,rgb(248_251_251/0.15)_58%,rgb(248_251_251/0)_72%)]"
+        className="absolute inset-0 bg-salt/55 lg:bg-transparent lg:bg-[linear-gradient(90deg,rgb(248_251_251/0.48)_0%,rgb(248_251_251/0.32)_30%,rgb(248_251_251/0.08)_43%,rgb(248_251_251/0)_50%)]"
       />
 
       <div className="relative flex min-h-[100svh] flex-col">

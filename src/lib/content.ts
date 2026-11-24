@@ -7,6 +7,7 @@ import brunswickMarina from "@/assets/images/brunswick-marina.jpg";
 import cindyPortrait from "@/assets/images/cindy-portrait-01.jpg";
 import coastalLivingRoom from "@/assets/images/coastal-living-room.jpg";
 import communityFestival from "@/assets/images/community-festival-live-oaks.jpg";
+import communityTreeCarving from "@/assets/images/community-tree-carving.jpg";
 import darienWaterfront from "@/assets/images/darien-historic-waterfront.jpg";
 import fortFrederica from "@/assets/images/fort-frederica-waterway.jpg";
 import glynnVisualArts from "@/assets/images/glynn-visual-arts.jpg";
@@ -161,23 +162,19 @@ export const COMMUNITIES: Community[] = [
   },
 ];
 
-/**
- * "Lifestyle and Community" — the six topics (and photos) from the home page of
- * cindybairdrealtor.com. Two photo swaps: the festival photo replaces her 640px
- * carved-tree image, and the beach-walk photo replaces the pier (used elsewhere).
- */
+/** The six topics and matching photos from cindybairdrealtor.com. */
 export const LIFESTYLE: { title: string; image: StaticImageData; alt: string }[] = [
   { title: "Golfing", image: golfCourse, alt: "A golf course at sunset with a sand bunker, pond and clubhouse" },
   { title: "Fantastic Local Restaurants", image: southernSoul, alt: "The Southern Soul Barbeque sign against a colorful sunset sky" },
   {
     title: "Community Feel and Festivals",
-    image: communityFestival,
-    alt: "An outdoor arts market under live oaks with colorful vendor tents",
+    image: communityTreeCarving,
+    alt: "A carved face in a large tree beside the water, with shady branches and a green lawn",
   },
   {
     title: "Biking and Beach Walks",
-    image: beachDogSplash,
-    alt: "A dog splashing through shallow water on the beach with coastal homes beyond",
+    image: stSimonsPier,
+    alt: "A coastal pier stretching over calm water beside a sandy, rock-lined beach",
   },
   { title: "The Art Center", image: glynnVisualArts, alt: "The Glynn Visual Arts gallery building and landscaped entrance" },
   {

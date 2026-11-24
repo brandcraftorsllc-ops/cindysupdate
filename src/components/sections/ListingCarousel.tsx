@@ -21,6 +21,7 @@ export function ListingCarousel({
   intro,
   listings,
   footnote,
+  hideSoldStatus = false,
   className,
 }: {
   id: string;
@@ -29,6 +30,7 @@ export function ListingCarousel({
   intro?: ReactNode;
   listings: Listing[];
   footnote?: ReactNode;
+  hideSoldStatus?: boolean;
   className?: string;
 }) {
   const track = useRef<HTMLDivElement>(null);
@@ -70,7 +72,7 @@ export function ListingCarousel({
         >
           {listings.map((l, i) => (
             <Reveal key={l.id} delay={Math.min(i, 3) * 0.06} className="w-[280px] shrink-0 snap-start sm:w-[320px]">
-              <ListingCard listing={l} sizes="320px" />
+              <ListingCard listing={l} sizes="320px" hideSoldStatus={hideSoldStatus} />
             </Reveal>
           ))}
         </div>

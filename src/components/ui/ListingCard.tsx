@@ -16,12 +16,14 @@ export function ListingCard({
   listing,
   sizes = "(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw",
   children,
+  hideSoldStatus = false,
   className,
 }: {
   listing: Listing;
   sizes?: string;
   /** Actions rendered at the bottom of the card. */
   children?: React.ReactNode;
+  hideSoldStatus?: boolean;
   className?: string;
 }) {
   const img = listing.images[0];
@@ -42,15 +44,17 @@ export function ListingCard({
             className="aspect-[3/2] w-full transition-transform duration-700 ease-out group-hover:scale-[1.05]"
           />
         ) : null}
-        <span
-          className={cn(
-            "absolute left-4 top-4 rounded-full px-3 py-1.5 font-body text-[0.72rem] font-semibold uppercase shadow-sm",
-            STATUS_STYLES[listing.status],
-          )}
-          style={{ letterSpacing: "0.18em" }}
-        >
-          {listing.status}
-        </span>
+        {!(hideSoldStatus && listing.status === "Sold") ? (
+          <span
+            className={cn(
+              "absolute left-4 top-4 rounded-full px-3 py-1.5 font-body text-[0.72rem] font-semibold uppercase shadow-sm",
+              STATUS_STYLES[listing.status],
+            )}
+            style={{ letterSpacing: "0.18em" }}
+          >
+            {listing.status}
+          </span>
+        ) : null}
       </div>
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <p className="font-body text-[1.15rem] font-semibold text-teal" style={{ letterSpacing: "0.02em" }}>
