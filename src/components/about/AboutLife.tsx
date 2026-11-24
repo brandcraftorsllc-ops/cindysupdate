@@ -38,7 +38,7 @@ export function AboutIslandLife() {
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
           <div>
             <p className="eyebrow text-teal">What I love about home</p>
-            <h2 id="island-life-title" className="mt-4 font-heading text-[clamp(1.95rem,4vw,3rem)] leading-[1.1] text-navy">
+            <h2 id="island-life-title" className="mt-4 font-heading text-[clamp(1.95rem,4vw,3rem)] leading-[1.1] text-teal">
               The sea, the oaks, <span className="italic text-teal">and the people.</span>
             </h2>
           </div>
@@ -59,14 +59,14 @@ export function AboutIslandLife() {
           {LIFE.map((item, i) => (
             <li key={item.title}>
               <Reveal delay={(i % 3) * 0.06} className="h-full">
-                <figure className="group relative h-full overflow-hidden rounded-[24px] border-4 border-white shadow-[0_24px_50px_-38px_rgb(20_51_74/0.6)]">
+                <figure className="group relative h-full overflow-hidden rounded-[24px] border-4 border-white shadow-[0_24px_50px_-38px_rgb(24_103_109/0.6)]">
                   <Picture
                     src={item.image}
                     alt={item.alt}
                     sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
                     className="h-full w-full transition-transform duration-700 group-hover:scale-[1.05]"
                   />
-                  <figcaption className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1 font-body text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-navy shadow-sm">
+                  <figcaption className="absolute bottom-3 left-3 rounded-full bg-white px-3 py-1 font-body text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-teal shadow-sm">
                     {item.title}
                   </figcaption>
                 </figure>
@@ -103,7 +103,7 @@ export function AboutProfessional() {
       <div className="shell grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
         <div>
           <p className="eyebrow text-teal">Experience</p>
-          <h2 id="pro-title" className="mt-4 font-heading text-[clamp(1.95rem,4vw,3rem)] leading-[1.1] text-navy">
+          <h2 id="pro-title" className="mt-4 font-heading text-[clamp(1.95rem,4vw,3rem)] leading-[1.1] text-teal">
             Local knowledge, <span className="italic text-teal">real results.</span>
           </h2>
           <p className="mt-5 text-[1.02rem] leading-relaxed text-ink">
@@ -113,14 +113,14 @@ export function AboutProfessional() {
 
           <dl className="mt-8 grid grid-cols-3 gap-3">
             {STATS.map((s) => (
-              <div key={s.label} className="card flex flex-col p-4 text-center sm:p-5">
-                <dt className="order-2 mt-1 font-body text-[0.66rem] font-semibold uppercase tracking-[0.12em] text-ink/85">{s.label}</dt>
-                <dd className="whitespace-nowrap font-heading text-[clamp(1rem,2.2vw,1.6rem)] leading-tight text-teal">{s.value}</dd>
+              <div key={s.label} className="card flex min-w-0 flex-col px-2 py-4 text-center sm:px-3 sm:py-5">
+                <dt className="order-2 mt-1 font-body text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-ink/85">{s.label}</dt>
+                <dd className="whitespace-nowrap font-heading text-[clamp(1rem,1.7vw,1.4rem)] leading-tight text-teal">{s.value}</dd>
               </div>
             ))}
           </dl>
 
-          <dl className="mt-8 divide-y divide-navy/10 border-y border-navy/10 text-[0.98rem]">
+          <dl className="mt-8 divide-y divide-teal/10 border-y border-teal/10 text-[0.98rem]">
             {[
               ["Brokerage", AGENT.office],
               ["License", AGENT.license],
@@ -130,7 +130,7 @@ export function AboutProfessional() {
               // TODO(Cindy): add years in real estate, professional designations and any awards — not stated on cindybairdrealtor.com.
             ].map(([k, v]) => (
               <div key={k} className="grid gap-1 py-3 sm:grid-cols-[150px_1fr] sm:gap-4">
-                <dt className="font-body text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-navy/85">{k}</dt>
+                <dt className="font-body text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-teal">{k}</dt>
                 <dd className="text-ink">{v}</dd>
               </div>
             ))}
@@ -139,7 +139,7 @@ export function AboutProfessional() {
 
         <div>
           <p className="eyebrow text-teal">Working with me</p>
-          <h2 className="mt-4 font-heading text-[clamp(1.95rem,4vw,3rem)] leading-[1.1] text-navy">
+          <h2 className="mt-4 font-heading text-[clamp(1.95rem,4vw,3rem)] leading-[1.1] text-teal">
             Heart, vision <span className="italic text-teal">and integrity.</span>
           </h2>
           <ul className="mt-8 space-y-4">
@@ -151,7 +151,7 @@ export function AboutProfessional() {
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <div>
-                      <h3 className="font-heading text-[1.35rem] leading-snug text-navy">{title}</h3>
+                      <h3 className="font-heading text-[1.35rem] leading-snug text-teal">{title}</h3>
                       <p className="mt-1.5 text-[0.98rem] leading-relaxed text-ink/90">{text}</p>
                     </div>
                   </div>

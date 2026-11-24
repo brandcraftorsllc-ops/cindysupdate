@@ -16,11 +16,13 @@ import interiorBiltmoreLiving from "@/assets/images/interior-116-biltmore-living
 import interiorCoastCottage from "@/assets/images/interior-17-coast-cottage-living.jpg";
 import golfCourse from "@/assets/images/island-golf-course.jpg";
 import jekyllBeach from "@/assets/images/jekyll-island-beach-aerial.jpg";
-import liveOaksLawn from "@/assets/images/live-oaks-lawn.jpg";
+import liveOakAvenue from "@/assets/images/live-oak-avenue.jpg";
+import marshCannon from "@/assets/images/marsh-cannon-sunset.jpg";
 import marshSunset from "@/assets/images/golden-isles-marsh-sunset.jpg";
 import seaIslandOaks from "@/assets/images/sea-island-live-oak-lane.jpg";
 import southernSoul from "@/assets/images/southern-soul-barbeque.jpg";
 import stSimonsPier from "@/assets/images/st-simons-pier.jpg";
+import stSimonsSign from "@/assets/images/st-simons-welcome-sign.jpg";
 
 /** Every photo is a real image downloaded from cindybairdrealtor.com. */
 export const IMAGES = {
@@ -28,7 +30,9 @@ export const IMAGES = {
   heroPoster,
   stSimonsPier,
   marshSunset,
-  liveOaksLawn,
+  liveOakAvenue,
+  marshCannon,
+  stSimonsSign,
   beachFamilySunset,
   coastalLivingRoom,
   golfCourse,
@@ -154,6 +158,71 @@ export const COMMUNITIES: Community[] = [
     x: 24.2,
     y: 11.8,
   },
+];
+
+/**
+ * "Lifestyle and Community" — the six topics (and photos) from the home page of
+ * cindybairdrealtor.com. Two photo swaps: the festival photo replaces her 640px
+ * carved-tree image, and the beach-walk photo replaces the pier (used elsewhere).
+ */
+export const LIFESTYLE: { title: string; image: StaticImageData; alt: string }[] = [
+  { title: "Golfing", image: golfCourse, alt: "A golf course at sunset with a sand bunker, pond and clubhouse" },
+  { title: "Fantastic Local Restaurants", image: southernSoul, alt: "The Southern Soul Barbeque sign against a colorful sunset sky" },
+  {
+    title: "Community Feel and Festivals",
+    image: communityFestival,
+    alt: "An outdoor arts market under live oaks with colorful vendor tents",
+  },
+  {
+    title: "Biking and Beach Walks",
+    image: beachDogSplash,
+    alt: "A dog splashing through shallow water on the beach with coastal homes beyond",
+  },
+  { title: "The Art Center", image: glynnVisualArts, alt: "The Glynn Visual Arts gallery building and landscaped entrance" },
+  {
+    title: "Kayaking and Paddle Boarding",
+    image: marshCannon,
+    alt: "Calm marsh waters at sunset beside a historic cannon",
+  },
+];
+
+/**
+ * "Neighborhood Guides" — the six guides on cindybairdrealtor.com, linking to
+ * her full guide pages. St. Marys has no usable photo (her site uses an Arizona
+ * golf image), so its card is a photo-free design card.
+ */
+export const NEIGHBORHOOD_GUIDES: { name: string; href: string; image?: StaticImageData; alt?: string }[] = [
+  {
+    name: "St. Simons Island",
+    href: "https://cindybairdrealtor.com/neighborhoods/st-simons-island",
+    image: stSimonsSign,
+    alt: "The Welcome to St. Simons Island, Georgia sign surrounded by trees",
+  },
+  {
+    name: "Sea Island",
+    href: "https://cindybairdrealtor.com/neighborhoods/sea-island",
+    image: seaIslandOaks,
+    alt: "A grassy lane beneath Spanish moss-draped live oaks",
+  },
+  {
+    name: "Jekyll Island",
+    href: "https://cindybairdrealtor.com/neighborhoods/jekyll-island",
+    image: jekyllBeach,
+    alt: "Aerial view of a wide Jekyll Island beach with a coastal path",
+  },
+  {
+    name: "Brunswick",
+    href: "https://cindybairdrealtor.com/neighborhoods/brunswick",
+    image: brunswickMarina,
+    alt: "Sailboats lining the Brunswick marina",
+  },
+  {
+    name: "Darien",
+    href: "https://cindybairdrealtor.com/neighborhoods/darien",
+    image: darienWaterfront,
+    alt: "Historic wooden buildings beside the marsh near Darien",
+  },
+  { name: "St. Marys", href: "https://cindybairdrealtor.com/neighborhoods/st-marys" },
 ];
 
 /** Options for the home-search bar and lead forms. */

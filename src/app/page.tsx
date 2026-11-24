@@ -4,9 +4,10 @@ import { FeaturedListings } from "@/components/sections/FeaturedListings";
 import { Hero } from "@/components/sections/hero/Hero";
 import { HomeValue } from "@/components/sections/HomeValue";
 import { IslandLife } from "@/components/sections/island-life/IslandLife";
+import { Lifestyle } from "@/components/sections/Lifestyle";
 import { MeetCindy } from "@/components/sections/MeetCindy";
-import { RecentlySold } from "@/components/sections/RecentlySold";
-import { Services } from "@/components/sections/Services";
+import { NeighborhoodGuides } from "@/components/sections/NeighborhoodGuides";
+import { SoldHomes } from "@/components/sections/SoldHomes";
 import { Testimonials } from "@/components/sections/Testimonials";
 
 export default function HomePage() {
@@ -16,10 +17,11 @@ export default function HomePage() {
       <IslandLife />
       <BuySell />
       <MeetCindy />
+      <Lifestyle />
       <FeaturedListings />
       <DesignEye />
-      <RecentlySold />
-      <Services />
+      <SoldHomes />
+      <NeighborhoodGuides />
       <HomeValue />
       <Testimonials />
     </>

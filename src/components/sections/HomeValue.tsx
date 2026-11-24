@@ -59,14 +59,13 @@ export function HomeValue() {
   );
 
   return (
-    <section id="home-value" className="relative scroll-mt-24 overflow-hidden">
+    <section id="home-value" className="relative scroll-mt-4 overflow-hidden">
       <div className="absolute inset-0">
         <Picture src={IMAGES.marshSunset} alt="" className="h-full w-full" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-foam/80 via-salt/70 to-foam/90" />
       </div>
       <div className="shell relative py-20 sm:py-24 lg:py-28">
         <div className="mx-auto max-w-[880px]">
-          <div className="glass p-6 sm:p-9 lg:p-11">
+          <div className="card p-6 sm:p-9 lg:p-11">
             {f.status === "sent" ? (
               <ThankYou name={v.name}>
                 <ArrowButton variant="light" onClick={() => f.reset()}>
@@ -86,7 +85,7 @@ export function HomeValue() {
                   <p className="eyebrow mt-4 text-teal">For sellers</p>
                   <AnimatedHeading
                     as="h2"
-                    className="mx-auto mt-3 max-w-[640px] font-heading text-[clamp(1.85rem,4vw,2.8rem)] leading-[1.1] text-navy"
+                    className="mx-auto mt-3 max-w-[640px] font-heading text-[clamp(1.85rem,4vw,2.8rem)] leading-[1.1] text-teal"
                     parts={[{ t: "Curious what your home " }, { t: "could sell for?", italic: true }]}
                     accent="text-teal"
                   />

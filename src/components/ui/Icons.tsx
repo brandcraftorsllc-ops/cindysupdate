@@ -22,17 +22,6 @@ function Lucide({ children, ...props }: IconProps) {
   );
 }
 
-export const Building2 = (p: IconProps) => (
-  <Lucide {...p}>
-    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
-    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
-    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
-    <path d="M10 6h4" />
-    <path d="M10 10h4" />
-    <path d="M10 14h4" />
-    <path d="M10 18h4" />
-  </Lucide>
-);
 export const Check = (p: IconProps) => (
   <Lucide {...p}>
     <path d="M20 6 9 17l-5-5" />
@@ -71,12 +60,6 @@ export const Instagram = (p: IconProps) => (
     <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-  </Lucide>
-);
-export const KeyRound = (p: IconProps) => (
-  <Lucide {...p}>
-    <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" />
-    <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
   </Lucide>
 );
 export const Mail = (p: IconProps) => (
@@ -122,29 +105,6 @@ export const Sparkles = (p: IconProps) => (
     <path d="M22 5h-4" />
     <path d="M4 17v2" />
     <path d="M5 18H3" />
-  </Lucide>
-);
-export const Store = (p: IconProps) => (
-  <Lucide {...p}>
-    <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" />
-    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-    <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" />
-    <path d="M2 7h20" />
-    <path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" />
-  </Lucide>
-);
-export const House = (p: IconProps) => (
-  <Lucide {...p}>
-    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
-    <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-  </Lucide>
-);
-export const ArrowUpDown = (p: IconProps) => (
-  <Lucide {...p}>
-    <path d="m21 16-4 4-4-4" />
-    <path d="M17 20V4" />
-    <path d="m3 8 4-4 4 4" />
-    <path d="M7 4v16" />
   </Lucide>
 );
 export const MapIcon = (p: IconProps) => (

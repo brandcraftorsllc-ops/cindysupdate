@@ -21,7 +21,7 @@ const formatPrice = (v: number) => {
   return `$${Math.round(v / 1e3)}K`;
 };
 
-const LABEL = "mb-1.5 block font-body text-[0.6rem] font-semibold uppercase text-navy/80";
+const LABEL = "mb-1.5 block font-body text-[0.72rem] font-semibold uppercase text-teal";
 
 function SearchSelect({
   label,
@@ -56,7 +56,7 @@ function SearchSelect({
         </select>
         <ChevronDown
           aria-hidden="true"
-          className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/60"
+          className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-teal/60"
         />
       </div>
     </label>
@@ -82,7 +82,7 @@ export function HomeSearch() {
             <span className={LABEL} style={{ letterSpacing: "0.2em" }}>
               I want to
             </span>
-            <div className="flex rounded-full border border-navy/10 bg-foam p-1" role="group" aria-label="I want to">
+            <div className="flex rounded-full border border-teal/10 bg-foam p-1" role="group" aria-label="I want to">
               {(["Buy", "Sell"] as const).map((m) => (
                 <button
                   key={m}
@@ -91,7 +91,7 @@ export function HomeSearch() {
                   aria-pressed={mode === m}
                   className={cn(
                     "min-h-[42px] flex-1 rounded-full font-body text-[0.74rem] font-semibold uppercase transition-colors",
-                    mode === m ? "bg-teal text-white" : "text-navy/80 hover:text-teal",
+                    mode === m ? "bg-teal text-white" : "text-teal hover:bg-white",
                   )}
                   style={{ letterSpacing: "0.14em" }}
                 >
@@ -106,15 +106,15 @@ export function HomeSearch() {
 
           <div>
             <div className="mb-1.5 flex items-baseline justify-between gap-2">
-              <span className="font-body text-[0.6rem] font-semibold uppercase text-navy/80" style={{ letterSpacing: "0.2em" }}>
+              <span className="font-body text-[0.72rem] font-semibold uppercase text-teal" style={{ letterSpacing: "0.2em" }}>
                 Price range
               </span>
-              <span className="font-body text-[0.78rem] font-semibold text-navy">
+              <span className="font-body text-[0.78rem] font-semibold text-teal">
                 {formatPrice(lo)} – {formatPrice(hi)}
               </span>
             </div>
             <div className="relative h-10">
-              <div className="absolute inset-x-0 top-1/2 h-1.5 -translate-y-1/2 rounded-full bg-navy/10" />
+              <div className="absolute inset-x-0 top-1/2 h-1.5 -translate-y-1/2 rounded-full bg-teal/10" />
               <div
                 className="absolute top-1/2 h-1.5 -translate-y-1/2 rounded-full bg-teal"
                 style={{ left: `${left}%`, right: `${right}%` }}

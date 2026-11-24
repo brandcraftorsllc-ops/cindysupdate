@@ -19,7 +19,6 @@ const config: Config = {
         seaglass: hsl("seaglass"), // light teal tint
         teal: hsl("teal"), // primary accent (AA on white)
         tide: hsl("tide"), // brighter teal for decoration / large text
-        navy: hsl("navy"), // deep navy-teal for headings, footer, contrast
         ink: hsl("ink"), // body text
         sand: hsl("sand"), // light sand neutral (sparingly)
         gold: hsl("gold"), // refined gold accent

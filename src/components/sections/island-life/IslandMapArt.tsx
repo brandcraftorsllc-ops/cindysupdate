@@ -5,7 +5,7 @@ export function IslandMapArt() {
       <path
         d="M-10 -10 L152 -10 C164 40 148 86 156 132 C164 178 142 214 150 258 C158 302 132 338 142 384 C150 418 128 432 118 450 L-10 450 Z"
         fill="hsl(38 44% 92% / 0.9)"
-        stroke="hsl(203 52% 17% / 0.28)"
+        stroke="hsl(184 64% 26% / 0.28)"
         strokeWidth="1.1"
         strokeLinejoin="round"
       />
@@ -13,7 +13,7 @@ export function IslandMapArt() {
       <path
         d="M150 40 C200 62 250 106 268 158 C282 206 258 252 266 298 C276 342 246 386 258 430 L120 430 C132 388 146 344 138 296 C130 248 146 196 140 142 C136 100 144 66 150 40 Z"
         fill="hsl(176 38% 80% / 0.6)"
-        stroke="hsl(203 52% 17% / 0.18)"
+        stroke="hsl(184 64% 26% / 0.18)"
         strokeWidth="1"
       />
       <path
@@ -32,25 +32,25 @@ export function IslandMapArt() {
       <path
         d="M298 110 C310 114 316 130 318 150 C322 194 318 236 328 270 C336 298 332 320 320 332 C308 342 294 336 288 320 C280 298 286 270 282 238 C278 204 284 170 286 144 C288 126 292 114 298 110 Z"
         fill="hsl(38 44% 94%)"
-        stroke="hsl(203 52% 17% / 0.42)"
+        stroke="hsl(184 64% 26% / 0.42)"
         strokeWidth="1.1"
         strokeLinejoin="round"
       />
       <path
         d="M352 258 C364 260 370 270 366 282 C362 292 350 294 344 286 C338 278 342 262 352 258 Z"
         fill="hsl(38 44% 94%)"
-        stroke="hsl(203 52% 17% / 0.42)"
+        stroke="hsl(184 64% 26% / 0.42)"
         strokeWidth="1.1"
       />
       <path
         d="M296 376 C312 370 332 376 338 388 C342 402 330 414 312 412 C294 410 282 398 284 386 C286 380 290 378 296 376 Z"
         fill="hsl(38 44% 94%)"
-        stroke="hsl(203 52% 17% / 0.42)"
+        stroke="hsl(184 64% 26% / 0.42)"
         strokeWidth="1.1"
       />
       <path
         d="M150 252 C192 254 220 272 244 286 C264 298 276 310 286 318"
-        stroke="hsl(203 52% 17% / 0.5)"
+        stroke="hsl(184 64% 26% / 0.5)"
         strokeWidth="1.1"
         strokeDasharray="5 5"
         strokeLinecap="round"

@@ -19,13 +19,13 @@ export function DesignEye() {
   return (
     <section className="sec bg-foam">
       <div className="shell">
-        <div className="grid items-center gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
           <Reveal>
             <div className="card p-7 sm:p-9">
               <p className="eyebrow text-teal">My eye for design</p>
               <AnimatedHeading
                 as="h2"
-                className="mt-4 font-heading text-[clamp(1.9rem,3.6vw,2.9rem)] leading-[1.12] text-navy"
+                className="mt-4 font-heading text-[clamp(1.9rem,3.6vw,2.9rem)] leading-[1.12] text-teal"
                 parts={[{ t: "Some homes need " }, { t: "a little imagination.", italic: true }]}
               />
               <p className="mt-5 text-[1.02rem] leading-relaxed text-ink">
@@ -48,8 +48,8 @@ export function DesignEye() {
                   key={img.alt}
                   className={
                     i === 0
-                      ? "group relative col-span-2 overflow-hidden rounded-[28px] border-4 border-white shadow-[0_30px_70px_-45px_rgb(20_51_74/0.6)]"
-                      : "group relative overflow-hidden rounded-[24px] border-4 border-white shadow-[0_24px_50px_-40px_rgb(20_51_74/0.6)]"
+                      ? "group relative col-span-2 overflow-hidden rounded-[28px] border-4 border-white shadow-[0_30px_70px_-45px_rgb(24_103_109/0.6)]"
+                      : "group relative overflow-hidden rounded-[24px] border-4 border-white shadow-[0_24px_50px_-40px_rgb(24_103_109/0.6)]"
                   }
                 >
                   <Picture
@@ -62,7 +62,7 @@ export function DesignEye() {
                         : "aspect-[4/3] w-full transition-transform duration-700 group-hover:scale-[1.04]"
                     }
                   />
-                  <figcaption className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1 font-body text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-navy shadow-sm">
+                  <figcaption className="absolute bottom-3 left-3 rounded-full bg-white px-3 py-1 font-body text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-teal shadow-sm">
                     {img.caption}
                   </figcaption>
                 </figure>

@@ -4,11 +4,10 @@ import { cn } from "@/lib/cn";
 
 // All variants meet WCAG AA for their label text, including hover states.
 const VARIANTS = {
-  primary: "border-teal bg-teal text-white hover:border-navy hover:bg-navy",
-  gold: "border-gold bg-gold text-navy hover:border-navy hover:bg-navy hover:text-white",
-  light: "border-navy/15 bg-white text-navy hover:border-teal hover:bg-foam",
-  navy: "border-navy bg-navy text-white hover:border-teal hover:bg-teal",
-  ghost: "border-white/70 bg-white/10 text-white backdrop-blur-md hover:bg-white hover:text-navy",
+  primary: "border-teal bg-teal text-white hover:brightness-[0.82]",
+  gold: "border-gold bg-gold text-ink hover:brightness-[0.9]",
+  light: "border-teal/15 bg-white text-teal hover:border-teal hover:bg-foam",
+  ghost: "border-white/70 bg-white/10 text-white backdrop-blur-md hover:bg-white hover:text-teal",
 } as const;
 
 export type ButtonVariant = keyof typeof VARIANTS;
@@ -23,14 +22,14 @@ type Props = {
 /** Pill button with divider + animated arrow — the site's signature CTA. */
 export function ArrowButton({ children, href, variant = "primary", className, type = "button", ...rest }: Props) {
   const classes = cn(
-    "group inline-flex h-[52px] items-stretch overflow-hidden rounded-full border transition-colors duration-300 disabled:cursor-wait disabled:opacity-70",
+    "group inline-flex h-[52px] items-stretch overflow-hidden rounded-full border transition-colors duration-300 [text-shadow:none] disabled:cursor-wait disabled:opacity-70",
     VARIANTS[variant],
     className,
   );
 
   const inner = (
     <>
-      <span className="flex items-center px-5 font-body text-[0.78rem] font-semibold uppercase tracking-[0.14em] sm:px-6">
+      <span className="flex items-center px-5 font-body text-[0.78rem] font-semibold uppercase leading-tight tracking-[0.14em] sm:whitespace-nowrap sm:px-6">
         {children}
       </span>
       <span aria-hidden="true" className="w-px self-stretch bg-current opacity-25" />

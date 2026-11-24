@@ -17,7 +17,7 @@ export function MobileActionBar() {
         <div className="glass flex items-stretch gap-2 p-2">
           <a
             href={AGENT.phoneHref}
-            className="flex min-h-[48px] flex-1 items-center justify-center gap-2 rounded-full border border-navy/15 bg-white font-body text-[0.78rem] font-semibold uppercase text-navy"
+            className="flex min-h-[48px] flex-1 items-center justify-center gap-2 rounded-full border border-teal/15 bg-white font-body text-[0.78rem] font-semibold uppercase text-teal"
             style={{ letterSpacing: "0.12em" }}
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
@@ -26,7 +26,7 @@ export function MobileActionBar() {
           <button
             type="button"
             onClick={() => setTalkOpen(true)}
-            className="flex min-h-[48px] flex-1 items-center justify-center rounded-full border border-teal bg-teal font-body text-[0.78rem] font-semibold uppercase text-white transition-colors hover:bg-navy"
+            className="flex min-h-[48px] flex-1 items-center justify-center rounded-full border border-teal bg-teal font-body text-[0.78rem] font-semibold uppercase text-white transition hover:brightness-[0.82]"
             style={{ letterSpacing: "0.12em" }}
           >
             Let&apos;s Talk

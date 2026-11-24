@@ -32,7 +32,7 @@ export default function AboutPage() {
         <div className="shell">
           <div className="text-center">
             <p className="eyebrow text-teal">Kind words</p>
-            <h2 id="about-testimonials-title" className="mx-auto mt-4 max-w-[640px] font-heading text-[clamp(1.9rem,3.8vw,2.9rem)] leading-[1.1] text-navy">
+            <h2 id="about-testimonials-title" className="mx-auto mt-4 max-w-[640px] font-heading text-[clamp(1.9rem,3.8vw,2.9rem)] leading-[1.1] text-teal">
               What my clients <span className="italic text-teal">say.</span>
             </h2>
           </div>
@@ -43,7 +43,7 @@ export default function AboutPage() {
               </Reveal>
             ))}
           </div>
-          <div id="about-contact" className="mt-14 scroll-mt-28">
+          <div id="about-contact" className="mt-14 scroll-mt-4">
             <HomeSweetHomeCta />
           </div>
         </div>

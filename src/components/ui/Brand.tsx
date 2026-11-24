@@ -5,15 +5,15 @@ type Tone = "dark" | "light";
 
 /** "Cindy Baird / REALTOR®" wordmark with the Home Sweet Agent script. */
 export function Wordmark({ tone = "dark", className }: { tone?: Tone; className?: string }) {
-  const name = tone === "light" ? "text-white" : "text-navy";
-  const sub = tone === "light" ? "text-white/80" : "text-teal";
+  const name = tone === "light" ? "text-white" : "text-teal";
+  const sub = tone === "light" ? "text-white" : "text-teal";
   return (
     <Link
       href="/"
       aria-label="Cindy Baird, REALTOR® — home"
       className={cn("inline-flex flex-col items-center leading-none", className)}
     >
-      <span className={cn("font-heading text-[1.42rem] leading-none sm:text-[1.6rem]", name)}>Cindy Baird</span>
+      <span className={cn("whitespace-nowrap font-heading text-[1.42rem] leading-none sm:text-[1.6rem]", name)}>Cindy Baird</span>
       <span
         className={cn("mt-2 font-body text-[0.55rem] font-semibold uppercase sm:text-[0.58rem]", sub)}
         style={{ letterSpacing: "0.4em", paddingLeft: "0.4em" }}
@@ -26,11 +26,11 @@ export function Wordmark({ tone = "dark", className }: { tone?: Tone; className?
 
 /** Keller Williams Realty Golden Isles brokerage slot. */
 export function BrokerageBadge({ tone = "dark", className }: { tone?: Tone; className?: string }) {
-  const border = tone === "light" ? "border-white/30" : "border-navy/15";
-  const top = tone === "light" ? "text-white/75" : "text-navy/70";
-  const bottom = tone === "light" ? "text-white" : "text-navy";
+  const border = tone === "light" ? "border-white/30" : "border-teal/15";
+  const top = tone === "light" ? "text-white" : "text-teal";
+  const bottom = tone === "light" ? "text-white" : "text-teal";
   return (
-    <div className={cn("flex flex-col justify-center rounded-[14px] border px-3 py-1.5", border, className)}>
+    <div className={cn("flex flex-col justify-center whitespace-nowrap rounded-[14px] border px-3 py-1.5", border, className)}>
       <span className={cn("font-body text-[0.5rem] font-semibold uppercase", top)} style={{ letterSpacing: "0.22em" }}>
         Keller Williams Realty
       </span>
@@ -41,7 +41,7 @@ export function BrokerageBadge({ tone = "dark", className }: { tone?: Tone; clas
 
 export function EqualHousing() {
   return (
-    <div className="flex items-center gap-3 text-white/80">
+    <div className="flex items-center gap-3 text-white">
       <svg width="38" height="32" viewBox="0 0 38 32" fill="none" aria-hidden="true">
         <rect x="1" y="1" width="36" height="30" rx="3" stroke="currentColor" strokeWidth="1.2" />
         <path d="M7 15.5L19 6l12 9.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />

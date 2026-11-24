@@ -5,11 +5,11 @@
 /*
  * Coastal design tokens — the single source of truth for the palette.
  * Tailwind maps these to `salt`, `foam`, `sky`, `seaglass`, `teal`, `tide`,
- * `navy`, `ink`, `sand` and `gold` (see tailwind.config.ts).
+ * `teal`, `ink`, `sand` and `gold` (see tailwind.config.ts).
  *
  * Contrast notes (WCAG AA):
- *   teal on salt/white ≈ 6.1:1   navy on salt ≈ 13:1   ink on salt ≈ 11:1
- *   white on teal ≈ 6.1:1        navy on gold ≈ 6.4:1  white on navy ≈ 13:1
+ *   teal (#18676D) on salt/white ≈ 6.1:1   ink on salt ≈ 11:1   white on teal ≈ 6.1:1
+ *   ink on gold ≈ 5.4:1   seaglass on teal ≈ 5:1   (avoid gold text on teal: ≈ 2.8:1)
  *   tide and gold are decorative / large-text only on light backgrounds.
  */
 @layer base {
@@ -20,7 +20,6 @@
     --seaglass: 176 38% 88%;
     --teal: 184 64% 26%;
     --tide: 181 47% 42%;
-    --navy: 203 52% 17%;
     --ink: 205 24% 21%;
     --sand: 38 44% 92%;
     --gold: 38 60% 54%;
@@ -43,7 +42,9 @@
     border-color: hsl(var(--border));
   }
 
+  /* Larger base type for an older audience: 1rem = 17.6px (all rem sizes scale with it). */
   html {
+    font-size: 110%;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
@@ -54,15 +55,15 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     font-family: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
+    font-size: 18px;
+    line-height: 1.7;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    color: hsl(var(--navy));
+    color: hsl(var(--teal));
     letter-spacing: -0.02em;
     font-family: var(--font-caslon), Georgia, serif;
     font-weight: 400;
@@ -70,7 +71,7 @@
 
   ::selection {
     background: hsl(var(--sky) / 0.6);
-    color: hsl(var(--navy));
+    color: hsl(var(--teal));
   }
 
   :focus-visible {
@@ -138,7 +139,7 @@
     background: rgb(255 255 255 / 0.82);
     border: 1px solid rgb(255 255 255 / 0.9);
     border-radius: 28px;
-    box-shadow: 0 24px 60px -32px rgb(20 51 74 / 0.35);
+    box-shadow: 0 24px 60px -32px rgb(24 103 109 / 0.35);
   }
 
   .glass-sm {
@@ -147,7 +148,7 @@
     background: rgb(255 255 255 / 0.85);
     border: 1px solid rgb(255 255 255 / 0.9);
     border-radius: 20px;
-    box-shadow: 0 16px 40px -26px rgb(20 51 74 / 0.35);
+    box-shadow: 0 16px 40px -26px rgb(24 103 109 / 0.35);
   }
 
   /* Plain bright card for content on salt/foam backgrounds. */
@@ -155,7 +156,7 @@
     background: #fff;
     border: 1px solid hsl(var(--border));
     border-radius: 28px;
-    box-shadow: 0 20px 50px -34px rgb(20 51 74 / 0.35);
+    box-shadow: 0 20px 50px -34px rgb(24 103 109 / 0.35);
   }
 
   .eyebrow {
@@ -233,7 +234,7 @@
     width: 20px;
     height: 20px;
     margin-top: 0;
-    box-shadow: 0 4px 12px rgb(20 51 74 / 0.25);
+    box-shadow: 0 4px 12px rgb(24 103 109 / 0.25);
   }
   .range-input::-moz-range-thumb {
     pointer-events: auto;
@@ -243,7 +244,7 @@
     border-radius: 9999px;
     width: 20px;
     height: 20px;
-    box-shadow: 0 4px 12px rgb(20 51 74 / 0.25);
+    box-shadow: 0 4px 12px rgb(24 103 109 / 0.25);
   }
   .range-input:focus-visible::-webkit-slider-thumb {
     outline: 2px solid hsl(var(--teal));

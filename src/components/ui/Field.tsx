@@ -20,7 +20,7 @@ export function Field({
     <div className={className}>
       <label
         htmlFor={htmlFor}
-        className="mb-1.5 block font-body text-[0.7rem] font-semibold uppercase text-navy/80"
+        className="mb-1.5 block font-body text-[0.7rem] font-semibold uppercase text-teal"
         style={{ letterSpacing: "0.16em" }}
       >
         {label}

@@ -12,11 +12,11 @@ import { FormError, ThankYou } from "./FormStatus";
 type DialogProps = { open: boolean; onOpenChange: (open: boolean) => void };
 
 const CONTENT = "max-h-[92svh] overflow-y-auto rounded-[28px] border-white bg-white p-6 sm:p-8";
-const TITLE = "mt-2 font-heading text-[1.75rem] leading-tight text-navy";
+const TITLE = "mt-2 font-heading text-[1.75rem] leading-tight text-teal";
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-body text-[0.66rem] font-semibold uppercase text-teal" style={{ letterSpacing: "0.2em" }}>
+    <p className="font-body text-[0.72rem] font-semibold uppercase text-teal" style={{ letterSpacing: "0.2em" }}>
       {children}
     </p>
   );
@@ -194,63 +194,6 @@ export function HomesDialog({
               </Field>
               <FormError status={f.status} />
               <SubmitRow sending={f.status === "sending"} label={mode === "Sell" ? "Talk to Cindy" : "Send Me Homes"} />
-            </form>
-          </>
-        )}
-      </DialogContent>
-    </Dialog>
-  );
-}
-
-/** Listing dialog: schedule a showing or ask a question about a specific home. */
-export function ShowingDialog({
-  open,
-  onOpenChange,
-  mode = "showing",
-  listing,
-}: DialogProps & { mode?: "showing" | "ask"; listing?: { address: string; city: string; price: string } }) {
-  const f = useLeadForm(mode === "ask" ? "Listing question" : "Showing request", {
-    name: "",
-    phone: "",
-    email: "",
-    when: "",
-    property: listing ? `${listing.address}, ${listing.city}` : "",
-    message: "",
-  });
-  const { reset, setValues } = f;
-  useEffect(() => {
-    if (open) setValues((v) => ({ ...v, property: listing ? `${listing.address}, ${listing.city}` : "" }));
-    else reset();
-  }, [open, listing]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className={`${CONTENT} max-w-[540px]`}>
-        {f.status === "sent" ? (
-          <ThankYou name={f.values.name} />
-        ) : (
-          <>
-            <DialogHeader className="text-left">
-              <Eyebrow>{listing ? listing.city : "Featured listing"}</Eyebrow>
-              <DialogTitle className={TITLE}>{mode === "ask" ? "Ask me about this home." : "Let's schedule a showing."}</DialogTitle>
-            </DialogHeader>
-            {listing ? (
-              <p className="mt-2 text-[0.92rem] text-ink/80">
-                {listing.address} · {listing.price}
-              </p>
-            ) : null}
-            <form onSubmit={f.onSubmit} className="mt-5 space-y-4" noValidate>
-              <ContactFields prefix="showing" values={f.values} errors={f.errors} bind={f.bind} />
-              {mode === "showing" ? (
-                <Field label="Preferred date & time" htmlFor="showing-when">
-                  <input id="showing-when" name="when" type="datetime-local" className="field-input" value={f.values.when} onChange={f.bind("when")} />
-                </Field>
-              ) : null}
-              <Field label="Message" htmlFor="showing-message">
-                <textarea id="showing-message" name="message" rows={3} className="field-input resize-none" placeholder={mode === "ask" ? "What would you like to know?" : "Anything I should know before we meet?"} value={f.values.message} onChange={f.bind("message")} />
-              </Field>
-              <FormError status={f.status} />
-              <SubmitRow sending={f.status === "sending"} label={mode === "ask" ? "Send My Question" : "Request a Showing"} />
             </form>
           </>
         )}

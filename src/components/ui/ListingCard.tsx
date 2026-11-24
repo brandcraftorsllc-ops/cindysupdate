@@ -4,11 +4,11 @@ import { Picture } from "./Picture";
 
 const STATUS_STYLES: Record<Listing["status"], string> = {
   Active: "bg-teal text-white",
-  New: "bg-gold text-navy",
-  "Coming Soon": "bg-sky text-navy",
-  Pending: "bg-white text-navy",
-  "Under Contract": "bg-white text-navy",
-  Sold: "bg-navy text-white",
+  New: "bg-gold text-ink",
+  "Coming Soon": "bg-sky text-teal",
+  Pending: "bg-white text-teal",
+  "Under Contract": "bg-white text-teal",
+  Sold: "bg-teal text-white",
 };
 
 /** Property card used by Featured Listings and Recently Sold. */
@@ -29,7 +29,7 @@ export function ListingCard({
   return (
     <article
       className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-[28px] border border-navy/10 bg-white shadow-[0_24px_60px_-42px_rgb(20_51_74/0.55)]",
+        "group flex h-full flex-col overflow-hidden rounded-[28px] border border-teal/10 bg-white shadow-[0_24px_60px_-42px_rgb(24_103_109/0.55)]",
         className,
       )}
     >
@@ -44,7 +44,7 @@ export function ListingCard({
         ) : null}
         <span
           className={cn(
-            "absolute left-4 top-4 rounded-full px-3 py-1.5 font-body text-[0.62rem] font-semibold uppercase shadow-sm",
+            "absolute left-4 top-4 rounded-full px-3 py-1.5 font-body text-[0.72rem] font-semibold uppercase shadow-sm",
             STATUS_STYLES[listing.status],
           )}
           style={{ letterSpacing: "0.18em" }}
@@ -56,10 +56,10 @@ export function ListingCard({
         <p className="font-body text-[1.15rem] font-semibold text-teal" style={{ letterSpacing: "0.02em" }}>
           {listing.price}
         </p>
-        <h3 className="mt-1 font-heading text-[1.3rem] leading-tight text-navy">{listing.address}</h3>
+        <h3 className="mt-1 font-heading text-[1.3rem] leading-tight text-teal">{listing.address}</h3>
         <p className="mt-1 text-[0.82rem] uppercase tracking-[0.12em] text-ink/80">{listing.city}</p>
         {facts ? (
-          <p className="mt-3 border-t border-navy/10 pt-3 font-body text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-navy/85">
+          <p className="mt-3 border-t border-teal/10 pt-3 font-body text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-teal">
             {facts}
           </p>
         ) : null}

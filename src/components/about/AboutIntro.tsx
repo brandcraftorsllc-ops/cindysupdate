@@ -23,7 +23,7 @@ export function AboutHero() {
           <p className="font-script text-[1.15rem] text-teal sm:text-[1.3rem]">Home Sweet Agent</p>
           <AnimatedHeading
             as="h1"
-            className="mt-4 font-heading text-[clamp(2.5rem,5.4vw,4.2rem)] leading-[1.05] text-navy"
+            className="mt-4 font-heading text-[clamp(2.5rem,5.4vw,4.2rem)] leading-[1.05] text-teal"
             parts={[{ t: "Hello, I'm " }, { t: "Cindy Baird.", italic: true }]}
             accent="text-teal"
           />
@@ -33,13 +33,13 @@ export function AboutHero() {
           </p>
           <ul className="mt-7 flex flex-wrap gap-3 text-[0.95rem]">
             <li>
-              <a href={AGENT.phoneHref} className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-navy/15 bg-white px-4 font-semibold text-navy hover:border-teal hover:text-teal">
+              <a href={AGENT.phoneHref} className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-teal/15 bg-white px-4 font-semibold text-teal hover:border-teal hover:underline underline-offset-4">
                 <Phone className="h-4 w-4" aria-hidden="true" />
                 {AGENT.phone}
               </a>
             </li>
             <li>
-              <a href={`mailto:${AGENT.email}`} className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-navy/15 bg-white px-4 font-semibold text-navy hover:border-teal hover:text-teal">
+              <a href={`mailto:${AGENT.email}`} className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-teal/15 bg-white px-4 font-semibold text-teal hover:border-teal hover:underline underline-offset-4">
                 <Mail className="h-4 w-4" aria-hidden="true" />
                 {AGENT.email}
               </a>
@@ -55,7 +55,7 @@ export function AboutHero() {
           </div>
         </div>
         <Reveal delay={0.15} className="relative mx-auto w-full max-w-[460px]">
-          <div className="overflow-hidden rounded-[36px] border-4 border-white shadow-[0_40px_90px_-50px_rgb(20_51_74/0.7)]">
+          <div className="overflow-hidden rounded-[36px] border-4 border-white shadow-[0_40px_90px_-50px_rgb(24_103_109/0.7)]">
             <Image
               src={IMAGES.cindyPortrait}
               alt="Cindy Baird, REALTOR®, smiling outdoors in a navy top"
@@ -66,7 +66,7 @@ export function AboutHero() {
             />
           </div>
           <div className="glass-sm absolute -bottom-6 left-1/2 w-[88%] -translate-x-1/2 px-5 py-4 text-center">
-            <p className="font-body text-[0.8rem] font-semibold text-navy">{AGENT.office}</p>
+            <p className="font-body text-[0.8rem] font-semibold text-teal">{AGENT.office}</p>
             <p className="mt-1 font-body text-[0.76rem] text-ink/85">{AGENT.license}</p>
           </div>
         </Reveal>
@@ -81,7 +81,7 @@ export function AboutStory() {
       <div className="shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal>
           <figure className="relative">
-            <div className="overflow-hidden rounded-[32px] border-4 border-white shadow-[0_30px_70px_-45px_rgb(20_51_74/0.6)]">
+            <div className="overflow-hidden rounded-[32px] border-4 border-white shadow-[0_30px_70px_-45px_rgb(24_103_109/0.6)]">
               <Picture
                 src={IMAGES.fortFrederica}
                 alt="Historic stone fort wall and cannon beside a calm waterway at Fort Frederica, St. Simons Island"
@@ -90,7 +90,7 @@ export function AboutStory() {
               />
             </div>
             <blockquote className="card relative z-10 -mt-16 ml-6 mr-[-0.5rem] max-w-[380px] p-6 sm:ml-10">
-              <p className="font-heading text-[1.35rem] italic leading-snug text-navy">
+              <p className="font-heading text-[1.35rem] italic leading-snug text-teal">
                 “This area is one of the most beautiful places on earth.”
               </p>
               <footer className="mt-3 font-script text-[1.2rem] text-teal">Cindy</footer>
@@ -99,7 +99,7 @@ export function AboutStory() {
         </Reveal>
         <div>
           <p className="eyebrow text-teal">My story</p>
-          <h2 id="story-title" className="mt-4 font-heading text-[clamp(1.95rem,4vw,3rem)] leading-[1.1] text-navy">
+          <h2 id="story-title" className="mt-4 font-heading text-[clamp(1.95rem,4vw,3rem)] leading-[1.1] text-teal">
             From a military family to <span className="italic text-teal">my island home.</span>
           </h2>
           <div className="mt-6 space-y-4 text-[1.04rem] leading-relaxed text-ink">

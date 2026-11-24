@@ -20,6 +20,8 @@ const CARDS: {
   cta: string;
   span: string;
   imagePosition?: string;
+  /** Put the photo below the text instead of above it. */
+  imageBelow?: boolean;
 }[] = [
   {
     id: "buying",
@@ -43,6 +45,7 @@ const CARDS: {
     points: ["Pricing that fits the market", "Design advice before listing", "Marketing that shows the lifestyle", "Downsizing support"],
     cta: "Start Selling",
     span: "lg:col-span-5",
+    imageBelow: true,
   },
 ];
 
@@ -54,7 +57,7 @@ export function BuySell() {
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <AnimatedHeading
             as="h2"
-            className="max-w-[540px] font-heading text-[clamp(1.95rem,4vw,3.1rem)] leading-[1.1] text-navy"
+            className="max-w-[540px] font-heading text-[clamp(1.95rem,4vw,3.1rem)] leading-[1.1] text-teal"
             parts={[{ t: "Buying and selling, " }, { t: "the thoughtful way.", italic: true }]}
             accent="text-teal"
           />
@@ -69,20 +72,22 @@ export function BuySell() {
             <Reveal key={c.id} delay={i * 0.08} className={`group ${c.span}`}>
               <article
                 id={c.id}
-                className="flex h-full scroll-mt-28 flex-col overflow-hidden rounded-[28px] bg-navy shadow-[0_30px_70px_-45px_rgb(20_51_74/0.7)]"
+                className={`flex h-full scroll-mt-4 ${c.imageBelow ? "flex-col-reverse" : "flex-col"} overflow-hidden rounded-[28px] bg-teal shadow-[0_30px_70px_-45px_rgb(24_103_109/0.7)]`}
               >
-                <div className="overflow-hidden">
+                {/* When the photo sits below the text it grows to fill any extra card height,
+                    so the text block stays compact instead of gaining an empty gap. */}
+                <div className={c.imageBelow ? "relative min-h-[260px] flex-1 overflow-hidden" : "overflow-hidden"}>
                   <Picture
                     src={c.image}
                     alt={c.alt}
                     imgClassName={c.imagePosition}
-                    className="aspect-[16/10] w-full transition-transform [transition-duration:1400ms] ease-out group-hover:scale-[1.05]"
+                    className={`${c.imageBelow ? "absolute inset-0 h-full" : "aspect-[16/10]"} w-full transition-transform [transition-duration:1400ms] ease-out group-hover:scale-[1.05]`}
                     sizes="(min-width: 1024px) 660px, 100vw"
                   />
                 </div>
-                {/* Solid navy text panel — white text ≈ 13:1, gold accents ≈ 6:1. */}
-                <div className="flex flex-1 flex-col p-7 sm:p-9">
-                  <p className="eyebrow text-gold">{c.label}</p>
+                {/* Solid teal text panel — white text ≈ 6:1, seaglass accents ≈ 5:1. */}
+                <div className={`flex flex-col p-7 sm:p-9 ${c.imageBelow ? "" : "flex-1"}`}>
+                  <p className="eyebrow text-seaglass">{c.label}</p>
                   <AnimatedHeading
                     as="h3"
                     className="mt-3 max-w-[440px] font-heading text-[clamp(1.9rem,3.2vw,2.5rem)] leading-[1.1] text-white"
@@ -93,7 +98,7 @@ export function BuySell() {
                   <ul className="mt-5 grid gap-2.5 sm:max-w-[460px] sm:grid-cols-2">
                     {c.points.map((p) => (
                       <li key={p} className="flex items-start gap-2 font-body text-[0.92rem] font-medium leading-snug text-white">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-seaglass" aria-hidden="true" />
                         {p}
                       </li>
                     ))}

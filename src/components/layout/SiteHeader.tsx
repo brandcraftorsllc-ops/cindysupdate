@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { AGENT, NAV_LINKS } from "@/lib/content";
 import { ArrowButton } from "../ui/ArrowButton";
@@ -38,31 +38,19 @@ export function SiteHeader() {
   const setMenuOpen = (next: boolean | ((open: boolean) => boolean)) =>
     setMenuPath((p) => ((typeof next === "function" ? next(p === pathname) : next) ? pathname : null));
   const [talkOpen, setTalkOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const isCurrent = (href: string) => (href === "/" || href === "/about") && href === pathname;
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50">
+      {/* Not sticky: the header sits over the top of the page and scrolls away with it. */}
+      <header className="absolute inset-x-0 top-0 z-50">
         <div className="shell pt-3 sm:pt-4">
           <div
-            className={cn(
-              "glass flex items-center justify-between gap-3 px-3 transition-all duration-500 sm:px-5",
-              scrolled ? "h-[66px]" : "h-[76px]",
-            )}
+            className="glass flex h-[76px] items-center justify-between gap-3 px-3 sm:px-5"
           >
             <div className="flex min-w-0 items-center gap-4">
               <Wordmark />
-              <span aria-hidden="true" className="hidden h-9 w-px bg-navy/15 xl:block" />
-              <BrokerageBadge className="hidden xl:flex" />
             </div>
 
             <nav aria-label="Main" className="hidden items-center gap-4 lg:flex xl:gap-5">
@@ -72,7 +60,7 @@ export function SiteHeader() {
                   href={l.href}
                   current={isCurrent(l.href)}
                   className={cn(
-                    "link-underline whitespace-nowrap py-1 font-body text-[0.74rem] font-semibold uppercase text-navy/85 transition-colors hover:text-teal",
+                    "link-underline whitespace-nowrap py-1 font-body text-[0.74rem] font-semibold uppercase text-teal transition-colors",
                     isCurrent(l.href) && "bg-[length:100%_1px] text-teal",
                   )}
                 >
@@ -82,13 +70,6 @@ export function SiteHeader() {
             </nav>
 
             <div className="flex items-center gap-2 sm:gap-3">
-              <a
-                href={AGENT.phoneHref}
-                className="hidden items-center gap-2 whitespace-nowrap font-body text-[0.82rem] font-semibold text-navy transition-colors hover:text-teal 2xl:flex"
-              >
-                <Phone className="h-3.5 w-3.5" aria-hidden="true" />
-                {AGENT.phone}
-              </a>
               <ArrowButton variant="primary" onClick={() => setTalkOpen(true)} className="hidden sm:inline-flex">
                 Let&apos;s Talk
               </ArrowButton>
@@ -98,7 +79,7 @@ export function SiteHeader() {
                 aria-expanded={menuOpen}
                 aria-controls="mobile-nav"
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
-                className="grid h-12 w-12 place-items-center rounded-full border border-navy/20 text-navy transition-colors hover:bg-foam lg:hidden"
+                className="grid h-12 w-12 place-items-center rounded-full border border-teal/20 text-teal transition-colors hover:bg-foam lg:hidden"
               >
                 {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
@@ -115,7 +96,7 @@ export function SiteHeader() {
                     current={isCurrent(l.href)}
                     onClick={() => setMenuOpen(false)}
                     className={cn(
-                      "flex min-h-[48px] items-center border-b border-navy/10 font-body text-[0.85rem] font-semibold uppercase text-navy last:border-0",
+                      "flex min-h-[48px] items-center border-b border-teal/10 font-body text-[0.85rem] font-semibold uppercase text-teal last:border-0",
                       isCurrent(l.href) && "text-teal",
                     )}
                   >
@@ -136,7 +117,7 @@ export function SiteHeader() {
                 </ArrowButton>
                 <a
                   href={AGENT.phoneHref}
-                  className="flex min-h-[48px] items-center justify-center gap-2 font-body text-[0.95rem] font-semibold text-navy"
+                  className="flex min-h-[48px] items-center justify-center gap-2 font-body text-[0.95rem] font-semibold text-teal"
                 >
                   <Phone className="h-4 w-4" aria-hidden="true" />
                   {AGENT.phone}

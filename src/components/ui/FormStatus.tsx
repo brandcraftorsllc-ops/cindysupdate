@@ -22,7 +22,7 @@ export function ThankYou({ name, children }: { name: string; children?: React.Re
   return (
     <div role="status" className="py-6 text-center">
       <p className="font-script text-[1.3rem] text-teal">Home Sweet Agent</p>
-      <h3 className="mt-3 font-heading text-[clamp(1.6rem,4vw,2.1rem)] leading-tight text-navy">Thank you, {first}!</h3>
+      <h3 className="mt-3 font-heading text-[clamp(1.6rem,4vw,2.1rem)] leading-tight text-teal">Thank you, {first}!</h3>
       <p className="mx-auto mt-3 max-w-[380px] text-[0.98rem] leading-relaxed text-ink/80">
         I&apos;ve got your note and I&apos;ll be in touch personally — usually the same day.
       </p>
