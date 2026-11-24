@@ -33,33 +33,27 @@ export function Lifestyle() {
         </div>
 
         {/* 4×2 bento on desktop: the first and last tiles are double-width, so six tiles fill two full rows. */}
-        <ul className="mt-10 grid auto-rows-[230px] grid-cols-1 gap-4 sm:grid-cols-2 lg:auto-rows-[300px] lg:grid-cols-4">
+        {/* Titles sit below each photo (not on it). */}
+        <ul className="mt-10 grid auto-rows-[300px] grid-cols-1 gap-5 sm:grid-cols-2 lg:auto-rows-[340px] lg:grid-cols-4">
           {LIFESTYLE.map((item, i) => {
             const wide = i === 0 || i === LIFESTYLE.length - 1;
             return (
-              <li
-                key={item.title}
-                className={wide ? "sm:col-span-2" : undefined}
-              >
+              <li key={item.title} className={wide ? "sm:col-span-2" : undefined}>
                 <Reveal delay={(i % 4) * 0.06} className="h-full">
-                  <figure className="group relative h-full overflow-hidden rounded-[26px] border-4 border-white bg-foam shadow-[0_24px_50px_-38px_rgb(24_103_109/0.6)]">
-                    <Picture
-                      src={item.image}
-                      alt={item.alt}
-                      sizes={
-                        wide
-                          ? "(min-width: 1024px) 570px, (min-width: 640px) 100vw, 100vw"
-                          : "(min-width: 1024px) 285px, (min-width: 640px) 50vw, 100vw"
-                      }
-                      className="h-full w-full transition-transform duration-700 group-hover:scale-[1.05]"
-                    />
-                    <figcaption
-                      className={
-                        wide
-                          ? "absolute bottom-4 left-4 rounded-2xl bg-white px-4 py-2.5 font-heading text-[1.35rem] leading-tight text-teal shadow-sm"
-                          : "absolute bottom-3 left-3 right-3 w-fit rounded-xl bg-white px-3 py-1.5 font-body text-[0.86rem] font-semibold leading-snug text-teal shadow-sm"
-                      }
-                    >
+                  <figure className="group flex h-full flex-col overflow-hidden rounded-[26px] border border-teal/10 bg-white shadow-[0_24px_50px_-38px_rgb(24_103_109/0.6)]">
+                    <div className="relative min-h-0 flex-1 overflow-hidden">
+                      <Picture
+                        src={item.image}
+                        alt={item.alt}
+                        sizes={
+                          wide
+                            ? "(min-width: 1024px) 570px, (min-width: 640px) 100vw, 100vw"
+                            : "(min-width: 1024px) 285px, (min-width: 640px) 50vw, 100vw"
+                        }
+                        className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-[1.05]"
+                      />
+                    </div>
+                    <figcaption className="px-5 py-4 font-heading text-[1.25rem] leading-snug text-teal sm:text-[1.3rem]">
                       {item.title}
                     </figcaption>
                   </figure>
