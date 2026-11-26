@@ -20,11 +20,11 @@ export function MeetCindy() {
             <div className="relative mx-auto w-full max-w-[380px]">
               <div className="overflow-hidden rounded-[32px] border-4 border-white shadow-[0_40px_90px_-50px_rgb(24_103_109/0.7)]">
                 <Image
-                  src={IMAGES.cindyPortrait}
-                  alt="Cindy Baird, REALTOR®, smiling outdoors in a navy top"
+                  src={IMAGES.cindyPortraitPorch}
+                  alt="Cindy Baird, REALTOR®, in a white linen blazer on a porch beneath live oaks"
                   sizes="380px"
                   placeholder="blur"
-                  className="aspect-square h-auto w-full object-cover"
+                  className="aspect-[3/4] h-auto w-full object-cover object-top"
                 />
               </div>
               <div className="glass-sm absolute -bottom-5 left-1/2 w-[86%] -translate-x-1/2 px-4 py-3 text-center">
@@ -48,7 +48,7 @@ export function MeetCindy() {
               </p>
               <p className="mt-3 text-[1rem] leading-relaxed text-ink/85">
                 Whether you&apos;re buying, selling, downsizing or looking for something special, I find absolute joy in
-                helping you find the right home. I care, I listen — and I&apos;ll be with you every step.
+                helping you find the right home. I care, I listen — and I&apos;ll be with you every step of your journey.
               </p>
               <p className="mt-5 font-script text-[1.6rem] leading-relaxed text-teal sm:text-[1.8rem]">Cindy Baird</p>
               <ul className="mt-3 flex flex-wrap gap-2">

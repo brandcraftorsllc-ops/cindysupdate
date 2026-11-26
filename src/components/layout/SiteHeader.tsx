@@ -51,21 +51,23 @@ export function SiteHeader() {
           >
             <div className="flex min-w-0 items-center gap-3">
               <Wordmark />
-              <BrokerageBadge className="hidden sm:flex" />
+              {/* Hidden only at lg (1024–1279px), where the full menu appears and there isn't room for both. */}
+              <BrokerageBadge className="hidden sm:flex lg:hidden xl:flex" />
             </div>
 
-            <nav aria-label="Main" className="hidden items-center gap-4 lg:flex xl:gap-5">
+            {/* Compact link spacing so all seven links fit beside the wordmark (and the KW badge from 1280px). */}
+            <nav aria-label="Main" className="hidden items-center gap-3 lg:flex">
               {NAV_LINKS.map((l) => (
                 <NavLink
                   key={l.label}
                   href={l.href}
                   current={isCurrent(l.href)}
                   className={cn(
-                    "link-underline whitespace-nowrap py-1 font-body text-[0.74rem] font-semibold uppercase text-teal transition-colors",
+                    "link-underline whitespace-nowrap py-1 font-body text-[0.7rem] font-semibold uppercase tracking-[0.06em] text-teal transition-colors xl:text-[0.72rem]",
                     isCurrent(l.href) && "bg-[length:100%_1px] text-teal",
                   )}
                 >
-                  <span style={{ letterSpacing: "0.12em" }}>{l.label}</span>
+                  <span>{l.label}</span>
                 </NavLink>
               ))}
             </nav>

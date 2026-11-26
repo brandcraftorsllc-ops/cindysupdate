@@ -5,6 +5,7 @@ import beachFamilySunset from "@/assets/images/beach-family-sunset.jpg";
 import beachSandcastle from "@/assets/images/beach-sandcastle.jpg";
 import brunswickMarina from "@/assets/images/brunswick-marina.jpg";
 import cindyPortrait from "@/assets/images/cindy-portrait-01.jpg";
+import cindyPortraitPorch from "@/assets/images/cindy-portrait-porch.jpg";
 import coastalLivingRoom from "@/assets/images/coastal-living-room.jpg";
 import communityFestival from "@/assets/images/community-festival-live-oaks.jpg";
 import communityTreeCarving from "@/assets/images/community-tree-carving.jpg";
@@ -26,6 +27,7 @@ import stSimonsSign from "@/assets/images/st-simons-welcome-sign.jpg";
 /** Every photo is a real image downloaded from cindybairdrealtor.com. */
 export const IMAGES = {
   cindyPortrait,
+  cindyPortraitPorch,
   heroPoster,
   homeValuePoster,
   stSimonsPier,
@@ -86,8 +88,8 @@ export const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Buy", href: "/#buying" },
   { label: "Sell", href: "/#selling" },
-  { label: "Listings", href: "/#listings" },
-  { label: "Communities", href: "/#island-life" },
+  { label: "Home Search", href: "/#search" },
+  { label: "Portfolio", href: "/#listings" },
   { label: "Contact", href: "#contact" },
 ];
 
