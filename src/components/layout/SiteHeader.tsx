@@ -39,7 +39,9 @@ export function SiteHeader() {
     setMenuPath((p) => ((typeof next === "function" ? next(p === pathname) : next) ? pathname : null));
   const [talkOpen, setTalkOpen] = useState(false);
 
-  const isCurrent = (href: string) => (href === "/" || href === "/about") && href === pathname;
+  // Route links (no hash) are "current" on their page and its sub-pages, e.g. /properties/[slug].
+  const isCurrent = (href: string) =>
+    !href.includes("#") && (href === pathname || (href !== "/" && pathname.startsWith(`${href}/`)));
 
   return (
     <>

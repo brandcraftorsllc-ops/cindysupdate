@@ -31,7 +31,7 @@ const description =
   "Cindy Baird, REALTOR® with Keller Williams Realty Golden Isles — a St. Simons Island neighbor since 2000 helping buyers and sellers across St. Simons, Sea Island, Jekyll Island, Brunswick and Darien with care, creativity and coastal insight.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://cindysupdate.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://cindysupdate-nine.vercel.app"),
   title: {
     default: "Cindy Baird, REALTOR® | St. Simons Island & Golden Isles Real Estate",
     template: "%s | Cindy Baird, REALTOR®",

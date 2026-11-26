@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { SOLD_LISTINGS } from "@/data/listings";
-import { AGENT } from "@/lib/content";
 import { ListingCarousel } from "./ListingCarousel";
 
 /** Closed sales from Cindy's portfolio. */
@@ -14,15 +14,10 @@ export function SoldHomes() {
       className="bg-salt"
       footnote={
         <>
-          A selection of closed sales from my portfolio — see all of them on{" "}
-          <a
-            href={`${AGENT.existingSite}/properties`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-teal underline underline-offset-2"
-          >
-            cindybairdrealtor.com
-          </a>
+          A selection of closed sales —{" "}
+          <Link href="/properties" className="font-semibold text-teal underline underline-offset-2">
+            see my full portfolio
+          </Link>
           . No representation is made about which brokerage represented which party in any transaction.
         </>
       }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { NEIGHBORHOOD_GUIDES } from "@/lib/content";
 import { MapIcon } from "../ui/Icons";
 import { AnimatedHeading, Reveal } from "../ui/Motion";
@@ -5,8 +6,7 @@ import { Picture } from "../ui/Picture";
 
 /**
  * "Neighborhood Guides" from Cindy's original site, redesigned as a card grid.
- * Each card opens her full guide (listings, schools, community data) on
- * cindybairdrealtor.com.
+ * Each card opens that area's guide page (/neighborhoods/[slug]).
  */
 export function NeighborhoodGuides() {
   return (
@@ -22,7 +22,7 @@ export function NeighborhoodGuides() {
             />
           </div>
           <p className="max-w-[380px] text-[1rem] leading-relaxed text-ink">
-            Homes for sale, schools and community details for each corner of the Golden Isles I serve.
+            A closer look at each corner of the Golden Isles I serve — and the homes I&apos;ve sold there.
           </p>
         </div>
 
@@ -30,10 +30,8 @@ export function NeighborhoodGuides() {
           {NEIGHBORHOOD_GUIDES.map((g, i) => (
             <li key={g.name}>
               <Reveal delay={(i % 3) * 0.07} className="h-full">
-                <a
+                <Link
                   href={g.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group flex h-full flex-col overflow-hidden rounded-[26px] border border-teal/10 bg-white shadow-[0_24px_60px_-42px_rgb(24_103_109/0.55)] transition-transform duration-500 hover:-translate-y-1.5"
                 >
                   {g.image ? (
@@ -56,11 +54,11 @@ export function NeighborhoodGuides() {
                   <div className="flex flex-1 items-center justify-between gap-3 p-5 sm:p-6">
                     <span className="font-heading text-[1.4rem] leading-tight text-teal">{g.name}</span>
                     <span className="shrink-0 font-body text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-teal group-hover:underline group-hover:underline-offset-4">
-                      Explore <span aria-hidden="true">↗</span>
-                      <span className="sr-only"> the {g.name} guide (opens cindybairdrealtor.com in a new tab)</span>
+                      Explore <span aria-hidden="true">→</span>
+                      <span className="sr-only"> the {g.name} neighborhood guide</span>
                     </span>
                   </div>
-                </a>
+                </Link>
               </Reveal>
             </li>
           ))}

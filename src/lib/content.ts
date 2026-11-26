@@ -89,8 +89,15 @@ export const NAV_LINKS = [
   { label: "Buy", href: "/#buying" },
   { label: "Sell", href: "/#selling" },
   { label: "Home Search", href: "/#search" },
-  { label: "Portfolio", href: "/#listings" },
-  { label: "Contact", href: "#contact" },
+  { label: "Portfolio", href: "/properties" },
+  { label: "Contact", href: "/contact" },
+];
+
+/** Extra pages listed in the footer's Quick Links (after the main nav). */
+export const FOOTER_EXTRA_LINKS = [
+  { label: "Neighborhoods", href: "/neighborhoods" },
+  { label: "Home Valuation", href: "/home-valuation" },
+  { label: "Testimonials", href: "/testimonials" },
 ];
 
 export type Community = {
@@ -194,37 +201,37 @@ export const LIFESTYLE: { title: string; image: StaticImageData; alt: string }[]
 export const NEIGHBORHOOD_GUIDES: { name: string; href: string; image?: StaticImageData; alt?: string }[] = [
   {
     name: "St. Simons Island",
-    href: "https://cindybairdrealtor.com/neighborhoods/st-simons-island",
+    href: "/neighborhoods/st-simons-island",
     image: stSimonsSign,
     alt: "The Welcome to St. Simons Island, Georgia sign surrounded by trees",
   },
   {
     name: "Sea Island",
-    href: "https://cindybairdrealtor.com/neighborhoods/sea-island",
+    href: "/neighborhoods/sea-island",
     image: seaIslandOaks,
     alt: "A grassy lane beneath Spanish moss-draped live oaks",
   },
   {
     name: "Jekyll Island",
-    href: "https://cindybairdrealtor.com/neighborhoods/jekyll-island",
+    href: "/neighborhoods/jekyll-island",
     image: jekyllBeach,
     alt: "Aerial view of a wide Jekyll Island beach with a coastal path",
   },
   {
     name: "Brunswick",
-    href: "https://cindybairdrealtor.com/neighborhoods/brunswick",
+    href: "/neighborhoods/brunswick",
     image: brunswickMarina,
     alt: "Sailboats lining the Brunswick marina",
   },
   {
     name: "Darien",
-    href: "https://cindybairdrealtor.com/neighborhoods/darien",
+    href: "/neighborhoods/darien",
     image: darienWaterfront,
     alt: "Historic wooden buildings beside the marsh near Darien",
   },
   {
     name: "St. Marys",
-    href: "https://cindybairdrealtor.com/neighborhoods/st-marys",
+    href: "/neighborhoods/st-marys",
     image: stMarysGolf,
     alt: "A golf green with a red flag, marsh grasses and live oaks under a bright sky",
   },

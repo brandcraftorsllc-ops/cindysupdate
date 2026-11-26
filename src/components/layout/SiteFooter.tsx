@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import brokerageLogo from "@/assets/images/kw-golden-isles-footer.png";
-import { AGENT, NAV_LINKS } from "@/lib/content";
+import { AGENT, FOOTER_EXTRA_LINKS, NAV_LINKS } from "@/lib/content";
 import { ArrowButton } from "../ui/ArrowButton";
 import { BrokerageBadge, EqualHousing, Wordmark } from "../ui/Brand";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "../ui/Icons";
@@ -72,7 +72,7 @@ export function SiteFooter() {
           <nav aria-label="Footer">
             <ColumnTitle>Quick Links</ColumnTitle>
             <ul className="mt-4 space-y-2.5">
-              {NAV_LINKS.map((l) => (
+              {[...NAV_LINKS, ...FOOTER_EXTRA_LINKS].map((l) => (
                 <li key={l.label}>
                   {l.href.includes("#") ? (
                     <a href={l.href} className="link-underline font-body text-[0.92rem] text-white transition-colors hover:text-white">
@@ -129,13 +129,13 @@ export function SiteFooter() {
             </p>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.8rem] text-white">
               <span>© {new Date().getFullYear()} Cindy Baird</span>
-              {/* TODO: link to real Privacy / Terms pages when they exist. */}
-              <a href="#contact" className="link-underline hover:text-white">
+              {/* Her site publishes one combined "Privacy Policy and Terms of Use" document. */}
+              <Link href="/terms-and-conditions" className="link-underline hover:text-white">
                 Privacy
-              </a>
-              <a href="#contact" className="link-underline hover:text-white">
+              </Link>
+              <Link href="/terms-and-conditions" className="link-underline hover:text-white">
                 Terms
-              </a>
+              </Link>
             </div>
           </div>
         </div>
